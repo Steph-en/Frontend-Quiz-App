@@ -18,7 +18,7 @@ $js: #306AFF;
 
 // Set text color based on bg
 @function set-text-color() {
-    @if(dlackness($color) > 70) {
+    @if(lightness($color) > 70) {
         @return $pure-white;
     } @else {
         @return $primary-font;

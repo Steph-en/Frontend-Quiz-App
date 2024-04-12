@@ -1,2 +1,60 @@
 @use "config";
 @use "buttons";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.menu {
+    font-family: config.$font-stack;
+    color: config.$primary-font;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 140px 224px;
+
+    .container {
+        width: 1160px;
+        height: 456px;
+        display: flex;
+        flex-direction: row;
+
+        .menu-heading {
+            width: 564px;
+            height: inherit;
+
+            .text {
+                height: 214;
+                width: 465;
+                display: flex;
+                flex-direction: column;
+                gap: 48px;
+            }
+
+            h1 {
+                margin: 0;
+                font-size: 64px;
+                font-weight: 300;
+
+                span {
+                    font-weight: 600;
+                }
+            }
+
+            .menu-discription {
+                font-size: 20px;
+                font-style: italic;
+                color: config.$secondary-font;
+            }
+        }
+
+        .menu-lessosns {
+            display: flex;
+            flex-direction: column;
+            width: 564px;
+            height: inherit;
+        }
+
+    }
+}
