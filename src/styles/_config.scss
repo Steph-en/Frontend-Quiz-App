@@ -1,4 +1,3 @@
-
 $font-stack: "Rubik", san-serif;
 
 $primary-font: #313E51;
@@ -17,7 +16,11 @@ $html: #FF7E35;
 $css: #2FD887;
 $js: #306AFF;
 
-// Set color based on bg
-@function color() {
-    @if()
+// Set text color based on bg
+@function set-text-color() {
+    @if(dlackness($color) > 70) {
+        @return $pure-white;
+    } @else {
+        @return $primary-font;
+    }
 }

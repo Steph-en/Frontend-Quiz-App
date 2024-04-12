@@ -1,3 +1,10 @@
+.toggle-btn {
+  border: none;
+  font-size: 20px;
+  color: #A729F5;
+  background: transparent;
+}
+
 .choice {
   background-color: #FFFFFF;
   color: #313E51;
