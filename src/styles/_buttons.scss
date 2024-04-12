@@ -1,0 +1,15 @@
+@use "config";
+
+.choice {
+    background-color: config.$pure-white;
+    color: config.$primary-font;
+}
+
+.submit {
+    background-color: config.$purple;
+    color: config.$pure-white;
+}
+
+.submit:hover{
+    background-color: config.$purple-hover;
+}
