@@ -1,1 +1,1 @@
-.toggle-btn{border:none;font-size:20px;color:#a729f5;background:rgba(0,0,0,0)}.choice{background-color:#fff;color:#313e51}.submit{background-color:#a729f5;color:#fff}.submit:hover{background-color:#ca97f4}
+.head{margin:0;padding:0;margin:97px}.head .toggle{display:flex;align-items:center;justify-content:flex-end}.head .toggle-btn{border:none;font-size:24px;color:#a729f5;background:rgba(0,0,0,0)}.head .toggle-btn:hover{cursor:pointer}.choice{background-color:#fff;color:#313e51}.submit{background-color:#a729f5;color:#fff}.submit:hover{background-color:#ca97f4}

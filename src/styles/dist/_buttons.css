@@ -1,8 +1,21 @@
-.toggle-btn {
+.head {
+  margin: 0;
+  padding: 0;
+  margin: 97px;
+}
+.head .toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.head .toggle-btn {
   border: none;
-  font-size: 20px;
+  font-size: 24px;
   color: #A729F5;
   background: transparent;
+}
+.head .toggle-btn:hover {
+  cursor: pointer;
 }
 
 .choice {

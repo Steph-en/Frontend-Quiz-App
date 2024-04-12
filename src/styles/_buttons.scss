@@ -1,10 +1,27 @@
 @use "config";
 
-.toggle-btn {    
-    border: none;
-    font-size: 20px;
-    color: config.$purple;
-    background: transparent;
+.head {
+    margin: 0;
+    padding: 0;
+    margin: 97px;
+
+
+    .toggle {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .toggle-btn {
+        border: none;
+        font-size: 24px;
+        color: config.$purple;
+        background: transparent;
+    }
+
+    .toggle-btn:hover {
+        cursor: pointer;
+    }
 }
 
 .choice {
@@ -17,6 +34,6 @@
     color: config.$pure-white;
 }
 
-.submit:hover{
+.submit:hover {
     background-color: config.$purple-hover;
 }
