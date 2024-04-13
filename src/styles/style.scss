@@ -1,11 +1,29 @@
 @use "config";
 @use "buttons";
 
-* {
+*, html {
+    font-family: config.$font-stack;
     margin: 0;
     padding: 0;
-    font-family: config.$font-stack;
-    background-color: config.$background;
+    z-index: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: config.$bg-light;
+    background-image: url(/assets/images/pattern-background-desktop-light.svg);
+}
+
+.main{
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+    background: none;
 }
 
 .menu {
@@ -21,9 +39,11 @@
         display: flex;
         flex-direction: row;
 
+
         .menu-heading {
             width: 564px;
             height: inherit;
+
 
             .text {
                 gap: 48px;
@@ -38,8 +58,10 @@
                 font-size: 64px;
                 font-weight: 300;
 
+
                 span {
                     font-weight: 600;
+
                 }
             }
 
@@ -54,10 +76,12 @@
             width: 564px;
             height: inherit;
 
+
             .lessons {
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
+
 
                 a {
                     cursor: pointer;
@@ -70,21 +94,20 @@
                     align-items: center;
                     border-radius: 24px;
                     background-color: config.$pure-white;
-                    box-shadow: 0 0 .5px .1px #c2c2c2;
+                    // box-shadow: 0 0 .5px .1px #c2c2c2;
 
                     .html-img {
                         width: 56px;
                         height: 56px;
                         display: flex;
+                        border-radius: 8px;
                         align-items: center;
                         justify-content: center;
-                        border-radius: 8px;
                         background: config.$html;
 
                         img {
                             width: 40px;
                             height: 40px;
-                            background: transparent;
                         }
                     }
 
@@ -101,15 +124,14 @@
                         width: 56px;
                         height: 56px;
                         display: flex;
+                        border-radius: 8px;
                         align-items: center;
                         justify-content: center;
-                        border-radius: 8px;
                         background: config.$css;
 
                         img {
                             width: 40px;
                             height: 40px;
-                            background: transparent;
                         }
                     }
 
@@ -134,7 +156,6 @@
                         img {
                             width: 40px;
                             height: 40px;
-                            background: transparent;
                         }
                     }
 
@@ -159,7 +180,7 @@
                         img {
                             width: 40px;
                             height: 40px;
-                            background: transparent;
+                            // background: transparent;
                         }
                     }
 
