@@ -4,15 +4,16 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: config.$font-stack;
+    background-color: config.$background;
 }
 
 .menu {
-    font-family: config.$font-stack;
     color: config.$primary-font;
+    margin: 140px 224px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 140px 224px;
 
     .container {
         width: 1160px;
@@ -25,11 +26,11 @@
             height: inherit;
 
             .text {
-                height: 214;
+                gap: 48px;
                 width: 465;
+                height: 214px;
                 display: flex;
                 flex-direction: column;
-                gap: 48px;
             }
 
             h1 {
@@ -49,12 +50,129 @@
             }
         }
 
-        .menu-lessosns {
-            display: flex;
-            flex-direction: column;
+        .menu-lessons {
             width: 564px;
             height: inherit;
-        }
 
+            .lessons {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+
+                a {
+                    cursor: pointer;
+                    padding: 0 0 0 20px;
+                    gap: 32px;
+                    height: 96px;
+                    width: inherit;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    border-radius: 24px;
+                    background-color: config.$pure-white;
+                    box-shadow: 0 0 .5px .1px #c2c2c2;
+
+                    .html-img {
+                        width: 56px;
+                        height: 56px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 8px;
+                        background: config.$html;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            background: transparent;
+                        }
+                    }
+
+                    .lesson1 {
+
+                        .lesson-html {
+                            font-size: 28px;
+                            font-weight: 500px;
+                            background: config.$pure-white;
+                        }
+                    }
+
+                    .css-img {
+                        width: 56px;
+                        height: 56px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 8px;
+                        background: config.$css;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            background: transparent;
+                        }
+                    }
+
+                    .lesson2 {
+
+                        .lesson-css {
+                            font-size: 28px;
+                            font-weight: 500px;
+                            background: config.$pure-white;
+                        }
+                    }
+
+                    .js-img {
+                        width: 56px;
+                        height: 56px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 8px;
+                        background: config.$js;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            background: transparent;
+                        }
+                    }
+
+                    .lesson3 {
+
+                        .lesson-js {
+                            font-size: 28px;
+                            font-weight: 500px;
+                            background: config.$pure-white;
+                        }
+                    }
+
+                    .acc-img {
+                        width: 56px;
+                        height: 56px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 8px;
+                        background: config.$acc;
+
+                        img {
+                            width: 40px;
+                            height: 40px;
+                            background: transparent;
+                        }
+                    }
+
+                    .lesson4 {
+
+                        .lesson-acc {
+                            font-size: 28px;
+                            font-weight: 500px;
+                            background: config.$pure-white;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

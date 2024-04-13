@@ -19,73 +19,89 @@
 </head>
 
 <body>
+  <div class="container">
 
-  <!-- Toggle -->
-  <div class="head">
-    <div class="toggle">
-      <div>
-        <img src="./assets/images/icon-sun-dark.svg" alt="sun icon">
-      </div>
-      <div>
-        <button class="toggle-btn">
-          <i class="fa-solid fa-toggle-on"></i>
-        </button>
-      </div>
-      <div>
-        <img src="./assets/images/icon-moon-dark.svg" alt="moon icon">
+    <!-- Toggle -->
+    <div class="head">
+      <div class="toggle">
+        <div>
+          <img src="./assets/images/icon-sun-dark.svg" alt="sun icon">
+        </div>
+        <div>
+          <button class="toggle-btn">
+            <i class="fa-solid fa-toggle-on" style="transform: rotate(180deg);"></i>
+          </button>
+        </div>
+        <div>
+          <img src="./assets/images/icon-moon-dark.svg" alt="moon icon">
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Quiz menu start -->
-  <div class="menu">
-    <div class="container">
-      <div class="menu-heading">
-        <div class="text">
-          <div>
-            <h1>Welcome to the <br> <span>Frontend Quiz!</span></h1>
+    <!-- Quiz menu start -->
+    <div class="menu">
+      <div class="container">
+        <div class="menu-heading">
+          <div class="text">
+            <div>
+              <h1>Welcome to the <br> <span>Frontend Quiz!</span></h1>
+            </div>
+            <div>
+              <p class="menu-discription">
+                Pick a subject to get started.
+              </p>
+            </div>
           </div>
-          <div>
-            <p class="menu-discription">
-              Pick a subject to get started.
-            </p>
+        </div>
+        <div class="menu-lessons">
+          <div class="lessons">
+            <a class="html">
+              <div class="html-img">
+                <img src="./assets/images/icon-html.svg" class="" />
+              </div>
+              <div class="lesson1">
+                <p class="lesson-html">HTML</p>
+              </div>
+            </a>
+            <a class="css">
+              <div class="css-img">
+                <img src="./assets/images/icon-css.svg" class="css" />
+              </div>
+              <div class="lesson2">
+                <p class="lesson-css">CSS</p>
+              </div>
+            </a>
+            <a class="js">
+              <div class="js-img">
+                <img src="./assets/images/icon-js.svg" class="js" />
+              </div>
+              <div class="lesson3">
+                <p class="lesson-js">Javascript</p>
+              </div>
+            </a>
+            <a class="acc">
+              <div class="acc-img">
+                <img src="./assets/images/icon-accessibility.svg" class="accessibility" />
+              </div>
+              <div class="lesson4">
+                <p class="lesson-acc">Accessibility</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      <div class="menu-lessons">
-        <a class="lessons">
-          <div class="categories">
-            <img src="./assets/images/icon-html.svg" class="html" />
-            <p class="categories-titles">HTML</p>
-          </div>
-        </a>
-        <a class="lessons">
-          <div class="categories">
-            <img src="./assets/images/icon-css.svg" class="css" />
-            <p class="categories-titles">CSS</p>
-          </div>
-        </a>
-        <a class="lessons">
-          <div class="categories">
-            <img src="./assets/images/icon-js.svg" class="js" />
-            <p class="categories-titles">Javascript</p>
-          </div>
-        </a>
-        <a class="lessons">
-          <div class="categories">
-            <img src="./assets/images/icon-accessibility.svg" class="accessibility" />
-            <p class="categories-titles">Accessibility</p>
-          </div>
-        </a>
-      </div>
     </div>
+    <!-- Quiz menu end -->
   </div>
-  <!-- Quiz menu end -->
+
 
   <!-- Quiz question start -->
 
   Question
-  <!-- number --> of 10
+
+  <!-- number -->
+
+  of 10
 
   A
   B
@@ -101,7 +117,10 @@
   Quiz completed
   You scored...
 
-  <!-- score --> out of 10
+  <!-- score -->
+
+  out of 10
+
   <script src="./src/dist/js/index.js"></script>
   <!-- Quiz completed end -->
 

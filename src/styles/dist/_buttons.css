@@ -4,6 +4,7 @@
   margin: 97px;
 }
 .head .toggle {
+  gap: 16px;
   display: flex;
   align-items: center;
   justify-content: flex-end;

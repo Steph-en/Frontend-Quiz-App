@@ -1,10 +1,14 @@
+// font family
 $font-stack: "Rubik", san-serif;
 
+// font color
 $primary-font: #313E51;
 $secondary-font: #626C7F;
 
-$background: #F4F6FA;
+// background
+$bg-light: #F4F6FA;
 
+// state
 $error: #EE5454;
 $success: #26D782;
 
@@ -12,9 +16,10 @@ $purple: #A729F5;
 $pure-white: #FFFFFF;
 $purple-hover: rgb(202, 151, 244);
 
-$html: #FF7E35;
-$css: #2FD887;
-$js: #306AFF;
+$html: #FFF1E9;
+$css: #E0FDEF;
+$js: #EBF0FF;
+$acc: #F6E7FF;
 
 // Set text color based on bg
 @function set-text-color() {
