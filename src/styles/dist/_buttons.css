@@ -7,15 +7,43 @@
   gap: 16px;
   display: flex;
   align-items: center;
+  justify-content: center;
   justify-content: flex-end;
 }
-.head .toggle-btn {
-  border: none;
-  font-size: 24px;
-  color: #A729F5;
-  background: transparent;
+.head .toggle .toggle-btn .icon img {
+  width: 24px;
+  height: 24px;
 }
-.head .toggle-btn:hover {
+.head .toggle .toggle-btn #toggle {
+  display: none;
+}
+.head .toggle .toggle-btn label {
+  display: inline-block;
+  width: 48px;
+  height: 28px;
+  background-color: #A729F5;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.head .toggle .toggle-btn label::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.head .toggle .toggle-btn #toggle:checked + label {
+  background-color: #A729F5;
+}
+.head .toggle .toggle-btn #toggle:checked + label::before {
+  transform: translateX(20px);
+}
+.head .toggle .toggle-btn:hover {
   cursor: pointer;
 }
 

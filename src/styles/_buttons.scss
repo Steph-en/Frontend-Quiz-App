@@ -5,23 +5,57 @@
     padding: 0;
     margin: 97px;
 
-
     .toggle {
         gap: 16px;
         display: flex;
         align-items: center;
+        justify-content: center;
         justify-content: flex-end;
-    }
-    
-    .toggle-btn {
-        border: none;
-        font-size: 24px;
-        color: config.$purple;
-        background: transparent;
-    }
 
-    .toggle-btn:hover {
-        cursor: pointer;
+        .toggle-btn{
+            .icon img{
+                width: 24px;
+                height: 24px;
+            }
+    
+            #toggle {
+                display: none;
+            }
+    
+            label {
+                display: inline-block;
+                width: 48px;
+                height: 28px;
+                background-color: config.$purple;
+                border-radius: 50px;
+                position: relative;
+                cursor: pointer;
+            }
+    
+            label::before {
+                content: "";
+                position: absolute;
+                top: 4px;
+                left: 4px;
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                border-radius: 50%;
+                transition: transform 0.3s;
+            }
+    
+            #toggle:checked+label {
+                background-color: config.$purple;
+            }
+    
+            #toggle:checked+label::before {
+                transform: translateX(20px);
+            }
+        }
+
+        .toggle-btn:hover {
+            cursor: pointer;
+        }
     }
 }
 
