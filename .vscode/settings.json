@@ -2,10 +2,6 @@
     "liveSassCompile.settings.autoprefix": [],
     "compile-hero.disable-compile-files-on-did-save-code": false,
     "liveSassCompile.settings.formats": [
-
-
-
-
         {
             "format": "compressed",
             "extensionName": ".css",
@@ -14,5 +10,8 @@
         }
     ],
     "liveSassCompile.settings.generateMap": false,
-    "liveSassCompile.settings.useNewCompiler": false
+    "liveSassCompile.settings.useNewCompiler": false,
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": true,
+    "editor.fontSize": 12
 }

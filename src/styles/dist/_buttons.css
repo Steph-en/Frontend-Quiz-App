@@ -46,17 +46,3 @@
 .head .toggle .toggle-btn:hover {
   cursor: pointer;
 }
-
-.choice {
-  background-color: #FFFFFF;
-  color: #313E51;
-}
-
-.submit {
-  background-color: #A729F5;
-  color: #FFFFFF;
-}
-
-.submit:hover {
-  background-color: #ca97f4;
-}

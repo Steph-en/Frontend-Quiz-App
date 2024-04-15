@@ -6,6 +6,10 @@
     --bg-secondary: #FFFFFF;
     --font-color-primary: #313E51;
     --font-color-secondary: #626C7F;
+    --bg-html: #FFF1E9;
+    --bg-css: #E0FDEF;
+    --bg-js: #EBF0FF;
+    --bg-acc: #F6E7FF;
     --bg-image: url(/assets/images/pattern-background-desktop-light.svg);
 }
 
@@ -109,6 +113,8 @@ body {
                     align-items: center;
                     border-radius: 24px;
                     background-color: var(--bg-secondary);
+                    text-decoration: none;
+                    color: var(--font-color-primary);
 
                     .html-img {
                         width: 56px;
@@ -198,7 +204,6 @@ body {
                     }
 
                     .lesson4 {
-
                         .lesson-acc {
                             font-size: 28px;
                             font-weight: 500px;

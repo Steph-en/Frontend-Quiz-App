@@ -13,3 +13,9 @@ function toggle() {
         moonIcon.src = './assets/images/icon-moon-dark.svg';
     }
 }
+
+interface Quiz {
+    quizzes: {
+        
+    }
+}
