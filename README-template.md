@@ -51,20 +51,18 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://frontend-quizz-app.netlify.app/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- SCSS preprocesed CSS custom properties
+- Typescript transcompiled to Javascript
 - Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- Desktop - first workflow
+- SCSS - For styles
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
@@ -100,8 +98,8 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [Example resource 1](https://sass-lang.com/) - This helped me with setting up SCSS and getting started. I really liked this pattern and will use it going forward.
+- [Example resource 2](https://www.youtube.com/watch?v=BCg4U1FzODs&t=1031s) - This is an amazing video which helped me setup and initialize my Typescriot environmant. I'd recommend it to anyone still learning this concept.
 
 **Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 

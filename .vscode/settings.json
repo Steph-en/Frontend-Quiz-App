@@ -13,5 +13,11 @@
     "liveSassCompile.settings.useNewCompiler": false,
     "editor.defaultFormatter": null,
     "editor.formatOnSave": true,
-    "editor.fontSize": 12
+    "editor.fontSize": 12,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
 }

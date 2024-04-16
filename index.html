@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
 
-  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css" />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap"
     rel="stylesheet" />
 
-  <link rel="stylesheet" href="./src/styles/dist/style.css ">
+  <link rel="stylesheet" href="./src/styles/dist/style.css " />
 
   <title>Quiz app</title>
 </head>
@@ -24,16 +24,12 @@
     <!-- Toggle -->
     <div class="head">
       <div class="toggle">
-        <div class="icon">
-          <img id="sunIcon" src="./assets/images/icon-sun-dark.svg" alt="sun icon">
-        </div>
+        <div class="sun-icon"></div>
         <div class="toggle-btn">
           <input type="checkbox" id="toggle" />
           <label for="toggle" onclick="toggle()"></label>
         </div>
-        <div class="icon">
-          <img id="moonIcon" src="./assets/images/icon-moon-dark.svg" alt="moon icon">
-        </div>
+        <div class="moon-icon"></div>
       </div>
     </div>
 
@@ -43,26 +39,27 @@
         <div class="menu-heading">
           <div class="text">
             <div>
-              <h1>Welcome to the <br> <span>Frontend Quiz!</span></h1>
+              <h1>
+                Welcome to the <br />
+                <span>Frontend Quiz!</span>
+              </h1>
             </div>
             <div>
-              <p class="menu-discription">
-                Pick a subject to get started.
-              </p>
+              <p class="menu-discription">Pick a subject to get started.</p>
             </div>
           </div>
         </div>
         <div class="menu-lessons">
           <div class="lessons">
-            <a class="html">
+            <a class="html" href="questions.html?lesson=HTML" onclick="console.log('hello')">
               <div class="html-img">
-                <img src="./assets/images/icon-html.svg" class="" />
+                <img src="./assets/images/icon-html.svg" class="html" />
               </div>
               <div class="lesson1">
                 <p class="lesson-html">HTML</p>
               </div>
             </a>
-            <a class="css">
+            <a class="css" href="questions.html?lesson=CSS" onclick="">
               <div class="css-img">
                 <img src="./assets/images/icon-css.svg" class="css" />
               </div>
@@ -70,7 +67,7 @@
                 <p class="lesson-css">CSS</p>
               </div>
             </a>
-            <a class="js">
+            <a class="js" href="questions.html?lesson=JavaScript" onclick="">
               <div class="js-img">
                 <img src="./assets/images/icon-js.svg" class="js" />
               </div>
@@ -78,7 +75,7 @@
                 <p class="lesson-js">Javascript</p>
               </div>
             </a>
-            <a href="questions.html" class="acc">
+            <a class="acc" href="questions.html?lesson=Accessibility" onclick="">
               <div class="acc-img">
                 <img src="./assets/images/icon-accessibility.svg" class="accessibility" />
               </div>
@@ -94,7 +91,6 @@
   </div>
 
   <script src="./src/js/dist/index.js"></script>
-
 </body>
 
 </html>

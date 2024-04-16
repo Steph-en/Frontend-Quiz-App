@@ -7,6 +7,8 @@
     --font-color-primary: #313E51;
     --font-color-secondary: #626C7F;
     --choise-font-color: #626C7F;
+    --sun-icon: url(/assets/images/icon-sun-dark.svg);
+    --moon-icon: url(/assets/images/icon-moon-dark.svg);
     --bg-image: url(/assets/images/pattern-background-desktop-light.svg);
 }
 
@@ -16,6 +18,8 @@
     --font-color-primary: #FFFFFF;
     --font-color-secondary: #ABC1E1;
     --choise-font-color: #626C7F;
+    --sun-icon: url(/assets/images/icon-sun-light.svg);
+    --moon-icon: url(/assets/images/icon-moon-light.svg);
     --bg-image: url(/assets/images/pattern-background-desktop-dark.svg);
 }
 
@@ -34,21 +38,27 @@ body {
     background-repeat: no-repeat;
     background-color: var(--bg-primary);
     background-image: var(--bg-image);
-    overflow: hidden;
 }
 
 .main {
     margin: 0;
     padding: 0;
-    background: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .head {
     margin: 0;
     padding: 0;
-    margin: 97px;
+    width: 1157px;
+    height: 56px;
+    margin: 83px 140px 0;    
     display: flex;
+    align-items: center;
     flex-direction: row;
+    justify-content: center;
     justify-content: space-between;
 
     .title {
@@ -79,73 +89,21 @@ body {
         }
     }
 
-    .toggle {
-        gap: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        justify-content: flex-end;
-
-        .toggle-btn {
-            .icon img {
-                width: 24px;
-                height: 24px;
-            }
-
-            #toggle {
-                display: none;
-            }
-
-            label {
-                display: inline-block;
-                width: 48px;
-                height: 28px;
-                background-color: config.$purple;
-                border-radius: 50px;
-                position: relative;
-                cursor: pointer;
-            }
-
-            label::before {
-                content: "";
-                position: absolute;
-                top: 4px;
-                left: 4px;
-                width: 20px;
-                height: 20px;
-                border-radius: 50%;
-                background-color: white;
-                transition: transform 0.3s;
-            }
-
-            #toggle:checked+label {
-                background-color: config.$purple;
-            }
-
-            #toggle:checked+label::before {
-                transform: translateX(20px);
-            }
-        }
-
-        .toggle-btn:hover {
-            cursor: pointer;
-        }
-    }
 }
 
-.question {
+.question-container {
     color: var(--font-color-primary);
-    margin: 140px 224px;
+    margin: 100px 224px;
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
     .container {
+        height: 564px;
         width: 1160px;
-        height: 636;
+        gap: 131px;
         display: flex;
         flex-direction: row;
-        gap: 131px;
 
 
         .question-section {
