@@ -1,12 +1,17 @@
 @use "config";
 @use "buttons";
+@use 'mobile';
 
 :root {
     --bg-primary: #F4F6FA;
     --bg-secondary: #FFFFFF;
     --font-color-primary: #313E51;
     --font-color-secondary: #626C7F;
-    --choise-font-color: #626C7F;
+    --choice-font-color: #626C7F;
+    --bg-html: #FFF1E9;
+    --bg-css: #E0FDEF;
+    --bg-js: #EBF0FF;
+    --bg-acc: #F6E7FF;
     --sun-icon: url(/assets/images/icon-sun-dark.svg);
     --moon-icon: url(/assets/images/icon-moon-dark.svg);
     --bg-image: url(/assets/images/pattern-background-desktop-light.svg);
@@ -28,11 +33,12 @@ html {
     font-family: config.$font-stack;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     width: 100vw;
-    height: auto;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -47,308 +53,310 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.head {
-    margin: 0;
-    padding: 0;
-    width: 1157px;
-    height: 56px;
-    margin: 83px 140px 0;    
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    justify-content: space-between;
-
-    .title {
-        gap: 24px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        .subject-img {
-            width: 56px;
-            height: 56px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: config.$acc;
-
-            img {
-                width: 40px;
-                height: 40px;
-            }
-        }
-
-
-        p {
-            color: var(--font-color-primary);
-            font-size: 28px;
-        }
-    }
-
-}
-
-.question-container {
-    color: var(--font-color-primary);
-    margin: 100px 224px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     
-    .container {
-        height: 564px;
-        width: 1160px;
-        gap: 131px;
+    .head {
+        margin: 0;
+        padding: 0;
+        width: 1157px;
+        height: 56px;
+        margin: 83px 140px 0;    
         display: flex;
+        align-items: center;
         flex-direction: row;
-
-
-        .question-section {
-            width: 465px;
-            height: 452px;
-            gap: auto;
+        justify-content: center;
+        justify-content: space-between;
+        
+        .title {
+            gap: 24px;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-
-            .text {
-                gap: 27px;
-                width: 465;
-                height: 272px;
+            flex-direction: row;
+            align-items: center;
+            
+            .subject-img {
+                width: 56px;
+                height: 56px;
+                border-radius: 8px;
                 display: flex;
-                flex-wrap: wrap;
-                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: config.$acc;
+                
+                img {
+                    width: 40px;
+                    height: 40px;
+                }
             }
-
-            .progress-bar {
-                .bar {
-                    width: 465px;
-                    height: 16px;
-                    border-radius: 50px;
-                    background-color: config.$pure-white;
+            
+            
+            p {
+                color: var(--font-color-primary);
+                font-size: 28px;
+            }
+        }
+        
+    }
+    
+    .question-container {
+        color: var(--font-color-primary);
+        margin: 100px 224px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        .container {
+            height: 564px;
+            width: 1160px;
+            gap: 131px;
+            display: flex;
+            flex-direction: row;
+            
+            
+            .question-section {
+                width: 465px;
+                height: 452px;
+                gap: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+                
+                .text {
+                    gap: 27px;
+                    width: 465;
+                    height: 272px;
                     display: flex;
-                    align-items: center;
-                    padding: 0 0 0 4px;
-
-                    .progress {
-                        width: 300px;
-                        height: 8px;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                }
+                
+                .progress-bar {
+                    .bar {
+                        width: 465px;
+                        height: 16px;
                         border-radius: 50px;
-                        background-color: config.$purple;
+                        background-color: config.$pure-white;
+                        display: flex;
+                        align-items: center;
+                        padding: 0 0 0 4px;
+                        
+                        .progress {
+                            width: 300px;
+                            height: 8px;
+                            border-radius: 50px;
+                            background-color: config.$purple;
+                        }
                     }
                 }
+                
             }
-
-        }
-
-        .question-number {
-            font-size: 20px;
-            background: none;
-            font-style: italic;
-            color: var(--font-color-secondary);
-        }
-
-        h3 {
-            margin: 0;
-            font-size: 36px;
-            font-weight: 400;
-        }
-
-        .lesson-question {
-            width: 564px;
-            height: inherit;
-
-
-            .options {
-                display: flex;
-                flex-direction: column;
-                gap: 24px;
-
-                a {
-                    cursor: pointer;
-                    padding: 0 0 0 20px;
-                    gap: 32px;
-                    height: 96px;
-                    width: inherit;
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    border-radius: 24px;
-                    background-color: var(--bg-secondary);
-
-                    .choice-option {
-                        width: 56px;
-                        height: 56px;
-                        display: flex;
-                        border-radius: 8px;
-                        align-items: center;
-                        justify-content: center;
-                        background-color: #F4F6FA;
-
-                        p {
-                            font-size: 28px;
-                            color: var(--choise-font-color);
-                        }
-                    }
-
-                    .choice-discription {
-
-                        p {
-                            font-size: 28px;
-                            font-weight: 500px;
-                            background: none;
-                        }
-                    }
-                }
-
-                a:hover {
-                    .choice-option {
-                        background-color: #F6E7FF;
-                        transition: .1s ease-in-out;
-
-                        p {
-                            color: config.$purple;
-                        }
-                    }
-                }
-
-                .select {
-                    border: 3px solid config.$purple;
-
-                    .choice-option {
-                        background-color: config.$purple;
-
-                        p {
-                            color: config.$pure-white;
-                        }
-                    }
-                }
-
-                .correct {
-                    padding: 20 20px 0 0;
-                    border: 3px solid config.$success;
-
-                    .choice-option {
-                        background-color: config.$success;
-
-                        p {
-                            color: config.$pure-white;
-                        }
-                    }
-
-                    .choice-discription {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        gap: 32px;
-
-                        p {
-                            width: 364px;
-                        }
-                    }
-
-                    .choice-discription::after {
-                        content: url('/assets/images/icon-correct.svg');
-                    }
-                }
-
-                .wrong {
-                    padding: 20 20px 0 0;
-                    border: 3px solid config.$error;
-
-                    .choice-option {
-                        background-color: config.$error;
-
-                        p {
-                            color: config.$pure-white;
-                        }
-                    }
-
-                    .choice-discription {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        gap: 32px;
-
-                        p {
-                            width: 364px;
-                        }
-                    }
-
-                    .choice-discription::after {
-                        content: url('/assets/images/icon-incorrect.svg');
-                    }
-                }
-
-                .answer {
-                    padding: 20 20px 0 0;
-
-                    .choice-discription {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        gap: 32px;
-
-                        p {
-                            width: 364px;
-                        }
-                    }
-
-                    .choice-discription::after {
-                        content: url('/assets/images/icon-correct.svg');
-                    }
-                }
-
-                .feedback {
-                    width: 564px;
+            
+            .question-number {
+                font-size: 20px;
+                background: none;
+                font-style: italic;
+                color: var(--font-color-secondary);
+            }
+            
+            h3 {
+                margin: 0;
+                font-size: 36px;
+                font-weight: 400;
+            }
+            
+            .lesson-option {
+                width: 564px;
+                height: inherit;
+                
+                
+                .options {
                     display: flex;
                     flex-direction: column;
-                    align-items: center;
-
-                    a.submit-btn {
-                        padding: 0;
-                        margin: 0 0 32px 0;
+                    gap: 24px;
+                    
+                    a {
+                        cursor: pointer;
+                        padding: 0 0 0 20px;
+                        gap: 32px;
+                        height: 96px;
+                        width: inherit;
                         display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color: config.$pure-white;
-                        background: config.$purple;
-
-                        .submit {
-                            font-size: 28px;
-                            text-transform: capitalize;
-                        }
-
-                    }
-
-                    .submit-btn:hover {
-                        background-color: config.$purple-hover;
-                        transition: .3s ease-in-out;
-                    }
-
-                    .error-message {
-                        width: 316px;
-                        height: 40px;
-                        gap: 8px;
-                        font-size: 24px;
-                        display: flex;
-                        align-items: center;
                         flex-direction: row;
-                        color: config.$error;
-                        justify-content: center;
+                        align-items: center;
+                        border-radius: 24px;
+                        background-color: var(--bg-secondary);
+                        
+                        .choice-option {
+                            width: 56px;
+                            height: 56px;
+                            display: flex;
+                            border-radius: 8px;
+                            align-items: center;
+                            justify-content: center;
+                            background-color: #F4F6FA;
+                            
+                            p {
+                                font-size: 28px;
+                                color: var(--choice-font-color);
+                            }
+                        }
+                        
+                        .choice-discription {
+                            
+                            p {
+                                font-size: 28px;
+                                font-weight: 500px;
+                                background: none;
+                            }
+                        }
                     }
-
-                    .error-message::before {
-                        content: url('/assets/images/icon-error.svg');
-                        width: 40px;
-                        height: 40px;
+                    
+                    a:hover {
+                        .choice-option {
+                            background-color: #F6E7FF;
+                            transition: .1s ease-in-out;
+                            
+                            p {
+                                color: config.$purple;
+                            }
+                        }
+                    }
+                    
+                    .select {
+                        border: 3px solid config.$purple;
+                        
+                        .choice-option {
+                            background-color: config.$purple;
+                            
+                            p {
+                                color: config.$pure-white;
+                            }
+                        }
+                    }
+                    
+                    .correct {
+                        padding: 20 20px 0 0;
+                        border: 3px solid config.$success;
+                        
+                        .choice-option {
+                            background-color: config.$success;
+                            
+                            p {
+                                color: config.$pure-white;
+                            }
+                        }
+                        
+                        .choice-discription {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 32px;
+                            
+                            p {
+                                width: 364px;
+                            }
+                        }
+                        
+                        .choice-discription::after {
+                            content: url('/assets/images/icon-correct.svg');
+                        }
+                    }
+                    
+                    .wrong {
+                        padding: 20 20px 0 0;
+                        border: 3px solid config.$error;
+                        
+                        .choice-option {
+                            background-color: config.$error;
+                            
+                            p {
+                                color: config.$pure-white;
+                            }
+                        }
+                        
+                        .choice-discription {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 32px;
+                            
+                            p {
+                                width: 364px;
+                            }
+                        }
+                        
+                        .choice-discription::after {
+                            content: url('/assets/images/icon-incorrect.svg');
+                        }
+                    }
+                    
+                    .answer {
+                        padding: 20 20px 0 0;
+                        
+                        .choice-discription {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            gap: 32px;
+                            
+                            p {
+                                width: 364px;
+                            }
+                        }
+                        
+                        .choice-discription::after {
+                            content: url('/assets/images/icon-correct.svg');
+                        }
+                    }
+                    
+                    .feedback {
+                        width: 564px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        
+                        a.submit-btn {
+                            padding: 0;
+                            margin: 0 0 32px 0;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: config.$pure-white;
+                            background: config.$purple;
+                            
+                            .submit {
+                                font-size: 28px;
+                                text-transform: capitalize;
+                            }
+                            
+                        }
+                        
+                        .submit-btn:hover {
+                            background-color: config.$purple-hover;
+                            transition: .3s ease-in-out;
+                        }
+                        
+                        .error-message {
+                            width: 316px;
+                            height: 40px;
+                            gap: 8px;
+                            font-size: 24px;
+                            display: flex;
+                            align-items: center;
+                            flex-direction: row;
+                            color: config.$error;
+                            justify-content: center;
+                            display: none;
+                        }
+                        
+                        .error-message::before {
+                            content: url('/assets/images/icon-error.svg');
+                            width: 40px;
+                            height: 40px;
+                        }
                     }
                 }
             }
         }
     }
 }
+
