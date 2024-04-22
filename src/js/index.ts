@@ -57,9 +57,6 @@ function navigateCategory(event: Event | KeyboardEvent) {
         .querySelector(".categories-titles")
         ?.textContent?.toLowerCase();
 
-    console.log("navigateCategory");
-
-
     if (categoryTitle) {
         categoryTarget.href = `./questions.html?category=${categoryTitle}`;
     }
@@ -80,7 +77,6 @@ function navigateCategory(event: Event | KeyboardEvent) {
         default:
             localStorage.setItem("selectedCategory", "unknown");
     }
-    alert(categoryTitle);
 }
 
 let filteredCategoryQuestions: Quiz;

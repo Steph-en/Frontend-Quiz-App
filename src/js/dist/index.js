@@ -32,7 +32,6 @@ function navigateCategory(event) {
     const categoryTarget = event.currentTarget;
     const categoryTitle = (_b = (_a = categoryTarget
         .querySelector(".categories-titles")) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.toLowerCase();
-    console.log("navigateCategory");
     if (categoryTitle) {
         categoryTarget.href = `./questions.html?category=${categoryTitle}`;
     }
@@ -52,7 +51,6 @@ function navigateCategory(event) {
         default:
             localStorage.setItem("selectedCategory", "unknown");
     }
-    alert(categoryTitle);
 }
 let filteredCategoryQuestions;
 function fetchData() {
