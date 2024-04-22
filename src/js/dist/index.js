@@ -8,7 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let Questions = { quizzes: [] };
 // dark mode settings here
 function toggle() {
     const theme = document.documentElement.classList.toggle('dark-theme');
@@ -17,9 +16,11 @@ function toggle() {
     // Store the theme state in local storage
     localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
 }
+let Questions = { quizzes: [] };
 // Selected Category;
 document.querySelectorAll(".category-link").forEach((link) => {
     link.addEventListener("click", navigateCategory);
+    console.log(link);
 });
 document.querySelectorAll(".category-link").forEach((link) => {
     link.addEventListener("keydown", function (event) {
@@ -31,6 +32,7 @@ function navigateCategory(event) {
     const categoryTarget = event.currentTarget;
     const categoryTitle = (_b = (_a = categoryTarget
         .querySelector(".categories-titles")) === null || _a === void 0 ? void 0 : _a.textContent) === null || _b === void 0 ? void 0 : _b.toLowerCase();
+    console.log("navigateCategory");
     if (categoryTitle) {
         categoryTarget.href = `./questions.html?category=${categoryTitle}`;
     }
@@ -50,21 +52,12 @@ function navigateCategory(event) {
         default:
             localStorage.setItem("selectedCategory", "unknown");
     }
+    alert(categoryTitle);
 }
-// function getRandomQuestions(): Quiz[] {
-//   let questionsCopy = [...filteredCategoryQuestions.questions];
-//   let randomQuestions: qu[] = [];
-//   for (let i = 0; i < 5; i++) {
-//     let index = Math.floor(Math.random() * questionsCopy.length);
-//     randomQuestions.push(questionsCopy[index]);
-//     questionsCopy.splice(index, 1);
-//   }
-//   return randomQuestions;
-// }
 let filteredCategoryQuestions;
 function fetchData() {
     return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch("./js/data.json");
+        const response = yield fetch("./data.json");
         const data = yield response.json();
         Questions = data;
         const category = localStorage.getItem("selectedCategory");
@@ -371,8 +364,6 @@ function selectAnswer(e) {
     letter.style.backgroundColor = "#a729f5";
     letter.style.color = "#fff";
     selectedButton.addEventListener("click", selectAnswer);
-    // if (selectedButton) {
-    // }
 }
 function startQuiz() {
     currentIndexQuestion = 0;
@@ -386,13 +377,6 @@ fetchData().then(() => {
     button === null || button === void 0 ? void 0 : button.addEventListener("click", showNextQuestion);
 });
 // question loading function going on above
-// // Apply the stored theme when the page loads
-// window.onload = () => {
-//     const storedTheme = localStorage.getItem('theme');
-//     if (storedTheme === 'dark') {
-//         document.documentElement.classList.add('dark-theme');
-//     }
-// };
 // // Get quiz data from JSON file
 // async function QuizData() {
 //     let response = await fetch(`/src/js/data.json`);

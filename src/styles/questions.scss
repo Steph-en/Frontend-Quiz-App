@@ -87,8 +87,7 @@ body {
                 }
             }
             
-            
-            p {
+            .categories-title{
                 color: var(--font-color-primary);
                 font-size: 28px;
             }
@@ -130,7 +129,7 @@ body {
                 }
                 
                 .progress-bar {
-                    .bar {
+                    .question-level-container {
                         width: 465px;
                         height: 16px;
                         border-radius: 50px;
@@ -139,7 +138,7 @@ body {
                         align-items: center;
                         padding: 0 0 0 4px;
                         
-                        .progress {
+                        .level-indicator {
                             width: 300px;
                             height: 8px;
                             border-radius: 50px;
@@ -157,7 +156,7 @@ body {
                 color: var(--font-color-secondary);
             }
             
-            h3 {
+            .question-body {
                 margin: 0;
                 font-size: 36px;
                 font-weight: 400;
@@ -173,7 +172,7 @@ body {
                     flex-direction: column;
                     gap: 24px;
                     
-                    a {
+                    .question-content {
                         cursor: pointer;
                         padding: 0 0 0 20px;
                         gap: 32px;
@@ -210,7 +209,7 @@ body {
                         }
                     }
                     
-                    a:hover {
+                    .question-content:hover {
                         .choice-option {
                             background-color: #F6E7FF;
                             transition: .1s ease-in-out;
@@ -311,10 +310,11 @@ body {
                     .feedback {
                         width: 564px;
                         display: flex;
-                        flex-direction: column;
                         align-items: center;
+                        flex-direction: column;
+                        border-radius: 10px;
                         
-                        a.submit-btn {
+                        .submit-btn {
                             padding: 0;
                             margin: 0 0 32px 0;
                             display: flex;
@@ -345,7 +345,7 @@ body {
                             flex-direction: row;
                             color: config.$error;
                             justify-content: center;
-                            display: none;
+                            // display: none;
                         }
                         
                         .error-message::before {

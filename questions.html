@@ -23,11 +23,11 @@
         <!-- Toggle -->
         <div class="head">
             <div class="title">
-                <div id="lesson-img" class="subject-img">
-                    <img src="./assets/images/icon-accessibility.svg" class="accessibility" />
+                <div id="question-header-icon" class="subject-img">
+                    <img src="./assets/images/icon-accessibility.svg" class="landing-icons" />
                 </div>
                 <div class="subject">
-                    <p class="lesson-title" id="lesson-title">{title}</p>
+                    <p class="categories-title" id="lesson-title">Accessibility</p>
                 </div>
             </div>
             <div class="toggle">
@@ -43,64 +43,65 @@
         <!-- Quiz question start -->
         <div class="question-container">
             <div class="container">
-                <div class="question-section">
+                <div id="quiz-prompt" class="question-section">
                     <div class="text">
                         <div>
-                            <p class="question-number">Question {$questionNumber} of 10</p>
+                            <p id="question-num" class="question-number">Question 6 of 10</p>
                         </div>
                         <div>
-                            <h3 id="question" class="question"></h3>
+                            <h3 id="question" class="question-body">Which of these color contrast ratios defines the minimum WCAG 2.1
+                                Level AA requirement for normal text?</h3>
                         </div>
                     </div>
                     <div class="progress-bar">
-                        <div class="bar">
-                            <div id="progress-bar" class="progress"></div>
+                        <div id="level-span" class="question-level-container">
+                            <div id="level" class="level-indicator"></div>
                         </div>
                     </div>
                 </div>
                 <div class="lesson-option">
-                    <div class="options">
-                        <a class="answer1">
+                    <div class="options" id="optn">
+                        <div class="question-content" tabindex="0">
                             <div class="choice-option">
-                                <p class="choice">A</p>
+                                <p id="letter" class="letter-options">A</p>
                             </div>
                             <div class="choice-discription">
-                                <p class=""></p>
+                                <p class="question-options">HTML</p>
                             </div>
-                        </a>
-                        <a class="answer2">
+                        </div>
+                        <div class="question-content" tabindex="0">
                             <div class="choice-option">
-                                <p class="choice">B</p>
+                                <p class="letter-options">B</p>
                             </div>
                             <div class="choice-discription">
-                                <p class=""></p>
+                                <p class="question-options">CSS</p>
                             </div>
-                        </a>
-                        <a class="answer3">
+                        </div>
+                        <div class="question-content" tabindex="0">
                             <div class="choice-option">
-                                <p class="choice">C</p>
+                                <p class="letter-options">C</p>
                             </div>
                             <div class="choice-discription">
-                                <p class=""></p>
+                                <p class="question-options">Javascript</p>
                             </div>
-                        </a>
-                        <a class="answer4">
+                        </div>
+                        <div class="question-content" tabindex="0">
                             <div class="choice-option">
-                                <p class="choice">D</p>
+                                <p class="letter-options">D</p>
                             </div>
                             <div class="choice-discription">
-                                <p class=""></p>
+                                <p class="question-options">Accessibility</p>
                             </div>
-                        </a>
+                        </div>
                         <div class="feedback">
-                            <a class="submit-btn">
+                            <div class="submit-btn">
                                 <div class="submit">
                                     <p class="">Submit answer</p>
                                 </div>
-                            </a>
-                            <div class="error-message">
-                                <p>Please select an answer</p>
                             </div>
+                            <!-- <div class="error-message">
+                                <p>Please select an answer</p>
+                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,14 @@
+// dark mode settings here
+function toggle() {
+    const theme: boolean = document.documentElement.classList.toggle('dark-theme');
+
+    // Check if the 'dark-theme' class is currently applied
+    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
+
+    // Store the theme state in local storage
+    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+}
+
 interface QuestionType {
     quizzes: Array<{
         title: string;
@@ -28,20 +39,10 @@ interface Questions {
 
 let Questions: QuestionType = { quizzes: [] };
 
-// dark mode settings here
-function toggle() {
-    const theme: any = document.documentElement.classList.toggle('dark-theme');
-
-    // Check if the 'dark-theme' class is currently applied
-    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
-
-    // Store the theme state in local storage
-    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
-}
-
 // Selected Category;
 document.querySelectorAll(".category-link").forEach((link) => {
     link.addEventListener("click", navigateCategory);
+    console.log(link);
 });
 
 document.querySelectorAll(".category-link").forEach((link) => {
@@ -56,6 +57,9 @@ function navigateCategory(event: Event | KeyboardEvent) {
         .querySelector(".categories-titles")
         ?.textContent?.toLowerCase();
 
+    console.log("navigateCategory");
+
+
     if (categoryTitle) {
         categoryTarget.href = `./questions.html?category=${categoryTitle}`;
     }
@@ -63,7 +67,6 @@ function navigateCategory(event: Event | KeyboardEvent) {
     switch (categoryTitle) {
         case "html":
             localStorage.setItem("selectedCategory", "html");
-
             break;
         case "css":
             localStorage.setItem("selectedCategory", "css");
@@ -77,22 +80,12 @@ function navigateCategory(event: Event | KeyboardEvent) {
         default:
             localStorage.setItem("selectedCategory", "unknown");
     }
+    alert(categoryTitle);
 }
-
-// function getRandomQuestions(): Quiz[] {
-//   let questionsCopy = [...filteredCategoryQuestions.questions];
-//   let randomQuestions: qu[] = [];
-//   for (let i = 0; i < 5; i++) {
-//     let index = Math.floor(Math.random() * questionsCopy.length);
-//     randomQuestions.push(questionsCopy[index]);
-//     questionsCopy.splice(index, 1);
-//   }
-//   return randomQuestions;
-// }
 
 let filteredCategoryQuestions: Quiz;
 async function fetchData() {
-    const response = await fetch("./js/data.json");
+    const response = await fetch("./data.json");
     const data = await response.json();
     Questions = data;
 
@@ -452,8 +445,6 @@ function selectAnswer(e: Event) {
     letter!.style.color = "#fff";
 
     selectedButton.addEventListener("click", selectAnswer);
-    // if (selectedButton) {
-    // }
 }
 
 function startQuiz() {
@@ -470,16 +461,6 @@ fetchData().then(() => {
 });
 // question loading function going on above
 
-
-
-
-// // Apply the stored theme when the page loads
-// window.onload = () => {
-//     const storedTheme = localStorage.getItem('theme');
-//     if (storedTheme === 'dark') {
-//         document.documentElement.classList.add('dark-theme');
-//     }
-// };
 
 // // Get quiz data from JSON file
 // async function QuizData() {
