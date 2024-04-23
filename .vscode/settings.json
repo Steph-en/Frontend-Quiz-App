@@ -1,29 +1,29 @@
 {
-    "liveSassCompile.settings.autoprefix": [],
-    "compile-hero.disable-compile-files-on-did-save-code": false,
-    "liveSassCompile.settings.formats": [
-        {
-            "format": "compressed",
-            "extensionName": ".css",
-            "savePath": "/src/styles/dist",
-            "savePathReplacementPairs": null
-        }
-    ],
-    "liveSassCompile.settings.generateMap": false,
-    "liveSassCompile.settings.useNewCompiler": false,
-    "editor.defaultFormatter": null,
-    "editor.formatOnSave": true,
-    "editor.fontSize": 12,
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "liveSassCompile.settings.autoprefix": [],
+  "compile-hero.disable-compile-files-on-did-save-code": false,
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      "savePath": "/src/styles/dist",
+      "savePathReplacementPairs": null
     }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "liveSassCompile.settings.useNewCompiler": false,
+  "editor.defaultFormatter": null,
+  "editor.formatOnSave": true,
+  "editor.fontSize": 14,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

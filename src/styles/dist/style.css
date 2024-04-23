@@ -101,57 +101,58 @@ body {
   align-items: center;
   flex-direction: column;
 }
-.main .head {
+
+.head {
   width: 1157px;
 }
-.main .menu {
+
+.menu {
   color: var(--font-color-primary);
   margin: 30px 224px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.main .menu .container {
+
+.container {
   width: 1160px;
   height: 456px;
   display: flex;
   flex-direction: row;
 }
-.main .menu .container .menu-heading {
+
+.menu-heading {
   width: 564px;
   height: inherit;
-}
-.main .menu .container .menu-heading .text {
   gap: 48px;
   width: 465;
   height: 214px;
   display: flex;
   flex-direction: column;
 }
-.main .menu .container .menu-heading h1 {
+.menu-heading h1 {
   margin: 0;
   font-size: 64px;
   font-weight: 300;
 }
-.main .menu .container .menu-heading h1 span {
+.menu-heading h1 span {
   font-weight: 600;
 }
-.main .menu .container .menu-heading .menu-discription {
+.menu-heading .menu-discription {
   font-size: 20px;
   font-style: italic;
   color: var(--font-color-secondary);
   background: none;
 }
-.main .menu .container .menu-lessons {
+
+.lessons {
   width: 564px;
   height: inherit;
-}
-.main .menu .container .menu-lessons .lessons {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
-.main .menu .container .menu-lessons .lessons a {
+.lessons .category-link {
   cursor: pointer;
   padding: 0 0 0 20px;
   gap: 32px;
@@ -165,75 +166,48 @@ body {
   text-decoration: none;
   color: var(--font-color-primary);
 }
-.main .menu .container .menu-lessons .lessons a .html-img {
+.lessons .category-link .categories-titles {
+  font-size: 28px;
+  font-weight: 500px;
+  background: none;
+}
+.lessons .category-link .icon1 {
   width: 56px;
   height: 56px;
+  padding: 10px;
   display: flex;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
   background: var(--bg-html);
 }
-.main .menu .container .menu-lessons .lessons a .html-img img {
-  width: 40px;
-  height: 40px;
-}
-.main .menu .container .menu-lessons .lessons a .lesson1 .lesson-html {
-  font-size: 28px;
-  font-weight: 500px;
-  background: none;
-}
-.main .menu .container .menu-lessons .lessons a .css-img {
+.lessons .category-link .icon2 {
   width: 56px;
   height: 56px;
+  padding: 10px;
   display: flex;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
   background: var(--bg-css);
 }
-.main .menu .container .menu-lessons .lessons a .css-img img {
-  width: 40px;
-  height: 40px;
-}
-.main .menu .container .menu-lessons .lessons a .lesson2 .lesson-css {
-  font-size: 28px;
-  font-weight: 500px;
-  background: none;
-}
-.main .menu .container .menu-lessons .lessons a .js-img {
+.lessons .category-link .icon3 {
   width: 56px;
   height: 56px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   background: var(--bg-js);
 }
-.main .menu .container .menu-lessons .lessons a .js-img img {
-  width: 40px;
-  height: 40px;
-}
-.main .menu .container .menu-lessons .lessons a .lesson3 .lesson-js {
-  font-size: 28px;
-  font-weight: 500px;
-  background: none;
-}
-.main .menu .container .menu-lessons .lessons a .acc-img {
+.lessons .category-link .icon4 {
   width: 56px;
   height: 56px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px;
   background: var(--bg-acc);
-}
-.main .menu .container .menu-lessons .lessons a .acc-img img {
-  width: 40px;
-  height: 40px;
-}
-.main .menu .container .menu-lessons .lessons a .lesson4 .lesson-acc {
-  font-size: 28px;
-  font-weight: 500px;
-  background: none;
 }

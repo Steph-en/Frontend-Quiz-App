@@ -53,310 +53,266 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
-    .head {
-        margin: 0;
-        padding: 0;
-        width: 1157px;
-        height: 56px;
-        margin: 83px 140px 0;    
+}
+
+.head {
+    margin: 0;
+    padding: 0;
+    width: 1157px;
+    height: 56px;
+    margin: 83px 140px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    justify-content: space-between;
+
+    .title {
+        gap: 24px;
         display: flex;
-        align-items: center;
         flex-direction: row;
-        justify-content: center;
-        justify-content: space-between;
-        
-        .title {
-            gap: 24px;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            
-            .subject-img {
-                width: 56px;
-                height: 56px;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: config.$acc;
-                
-                img {
-                    width: 40px;
-                    height: 40px;
-                }
-            }
-            
-            .categories-title{
-                color: var(--font-color-primary);
-                font-size: 28px;
-            }
-        }
-        
-    }
-    
-    .question-container {
-        color: var(--font-color-primary);
-        margin: 100px 224px;
-        display: flex;
         align-items: center;
-        justify-content: center;
-        
-        .container {
-            height: 564px;
-            width: 1160px;
-            gap: 131px;
+
+        .landing-icons {
+            width: 56px;
+            height: 56px;
+            padding: 6px;
+            border-radius: 8px;
             display: flex;
-            flex-direction: row;
-            
-            
-            .question-section {
-                width: 465px;
-                height: 452px;
-                gap: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                
-                
-                .text {
-                    gap: 27px;
-                    width: 465;
-                    height: 272px;
-                    display: flex;
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                }
-                
-                .progress-bar {
-                    .question-level-container {
-                        width: 465px;
-                        height: 16px;
-                        border-radius: 50px;
-                        background-color: config.$pure-white;
-                        display: flex;
-                        align-items: center;
-                        padding: 0 0 0 4px;
-                        
-                        .level-indicator {
-                            width: 300px;
-                            height: 8px;
-                            border-radius: 50px;
-                            background-color: config.$purple;
-                        }
-                    }
-                }
-                
-            }
-            
-            .question-number {
-                font-size: 20px;
-                background: none;
-                font-style: italic;
-                color: var(--font-color-secondary);
-            }
-            
-            .question-body {
-                margin: 0;
-                font-size: 36px;
-                font-weight: 400;
-            }
-            
-            .lesson-option {
-                width: 564px;
-                height: inherit;
-                
-                
-                .options {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 24px;
-                    
-                    .question-content {
-                        cursor: pointer;
-                        padding: 0 0 0 20px;
-                        gap: 32px;
-                        height: 96px;
-                        width: inherit;
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        border-radius: 24px;
-                        background-color: var(--bg-secondary);
-                        
-                        .choice-option {
-                            width: 56px;
-                            height: 56px;
-                            display: flex;
-                            border-radius: 8px;
-                            align-items: center;
-                            justify-content: center;
-                            background-color: #F4F6FA;
-                            
-                            p {
-                                font-size: 28px;
-                                color: var(--choice-font-color);
-                            }
-                        }
-                        
-                        .choice-discription {
-                            
-                            p {
-                                font-size: 28px;
-                                font-weight: 500px;
-                                background: none;
-                            }
-                        }
-                    }
-                    
-                    .question-content:hover {
-                        .choice-option {
-                            background-color: #F6E7FF;
-                            transition: .1s ease-in-out;
-                            
-                            p {
-                                color: config.$purple;
-                            }
-                        }
-                    }
-                    
-                    .select {
-                        border: 3px solid config.$purple;
-                        
-                        .choice-option {
-                            background-color: config.$purple;
-                            
-                            p {
-                                color: config.$pure-white;
-                            }
-                        }
-                    }
-                    
-                    .correct {
-                        padding: 20 20px 0 0;
-                        border: 3px solid config.$success;
-                        
-                        .choice-option {
-                            background-color: config.$success;
-                            
-                            p {
-                                color: config.$pure-white;
-                            }
-                        }
-                        
-                        .choice-discription {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            gap: 32px;
-                            
-                            p {
-                                width: 364px;
-                            }
-                        }
-                        
-                        .choice-discription::after {
-                            content: url('/assets/images/icon-correct.svg');
-                        }
-                    }
-                    
-                    .wrong {
-                        padding: 20 20px 0 0;
-                        border: 3px solid config.$error;
-                        
-                        .choice-option {
-                            background-color: config.$error;
-                            
-                            p {
-                                color: config.$pure-white;
-                            }
-                        }
-                        
-                        .choice-discription {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            gap: 32px;
-                            
-                            p {
-                                width: 364px;
-                            }
-                        }
-                        
-                        .choice-discription::after {
-                            content: url('/assets/images/icon-incorrect.svg');
-                        }
-                    }
-                    
-                    .answer {
-                        padding: 20 20px 0 0;
-                        
-                        .choice-discription {
-                            display: flex;
-                            flex-direction: row;
-                            align-items: center;
-                            gap: 32px;
-                            
-                            p {
-                                width: 364px;
-                            }
-                        }
-                        
-                        .choice-discription::after {
-                            content: url('/assets/images/icon-correct.svg');
-                        }
-                    }
-                    
-                    .feedback {
-                        width: 564px;
-                        display: flex;
-                        align-items: center;
-                        flex-direction: column;
-                        border-radius: 10px;
-                        
-                        .submit-btn {
-                            padding: 0;
-                            margin: 0 0 32px 0;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            color: config.$pure-white;
-                            background: config.$purple;
-                            
-                            .submit {
-                                font-size: 28px;
-                                text-transform: capitalize;
-                            }
-                            
-                        }
-                        
-                        .submit-btn:hover {
-                            background-color: config.$purple-hover;
-                            transition: .3s ease-in-out;
-                        }
-                        
-                        .error-message {
-                            width: 316px;
-                            height: 40px;
-                            gap: 8px;
-                            font-size: 24px;
-                            display: flex;
-                            align-items: center;
-                            flex-direction: row;
-                            color: config.$error;
-                            justify-content: center;
-                            // display: none;
-                        }
-                        
-                        .error-message::before {
-                            content: url('/assets/images/icon-error.svg');
-                            width: 40px;
-                            height: 40px;
-                        }
-                    }
-                }
-            }
+            align-items: center;
+            justify-content: center;
+            background: config.$acc;
+        }
+
+        .categories-title {
+            color: var(--font-color-primary);
+            font-size: 28px;
         }
     }
 }
 
+.question-container {
+    color: var(--font-color-primary);
+    margin: 100px 224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 564px;
+    width: 1160px;
+    gap: 131px;
+    display: flex;
+    flex-direction: row;
+}
+
+.question-section {
+    width: 465px;
+    height: 452px;
+    gap: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .text {
+        gap: 27px;
+        width: 465;
+        height: 272px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .question-number {
+            font-size: 20px;
+            background: none;
+            font-style: italic;
+            color: var(--font-color-secondary);
+        }
+
+        .question-body {
+            margin: 0;
+            font-size: 36px;
+            font-weight: 400;
+        }
+    }
+
+    .question-level-container {
+        width: 465px;
+        height: 16px;
+        border-radius: 50px;
+        background-color: config.$pure-white;
+        display: flex;
+        align-items: center;
+        padding: 0 0 0 4px;
+
+        .level-indicator {
+            width: 300px;
+            height: 8px;
+            border-radius: 50px;
+            background-color: config.$purple;
+        }
+    }
+}
+
+.options {
+    width: 564px;
+    display: flex;
+    height: inherit;
+    flex-direction: column;
+    gap: 24px;
+
+    .question-content {
+        cursor: pointer;
+        padding: 0 0 0 20px;
+        gap: 32px;
+        height: 96px;
+        width: inherit;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border-radius: 24px;
+        background-color: var(--bg-secondary);
+
+        .letter-options {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            background-color: #F4F6FA;
+            font-size: 28px;
+            color: var(--choice-font-color);
+        }
+
+        .question-options {
+            font-size: 28px;
+            font-weight: 500px;
+            background: none;
+        }
+    }
+
+    .question-content:hover {
+        .letter-options {
+            background-color: #F6E7FF;
+            transition: .1s ease-in-out;
+            color: config.$purple;
+        }
+    }
+
+    .select {
+        border: 3px solid config.$purple;
+
+        .letter-options {
+            background-color: config.$purple;
+            color: config.$pure-white;
+        }
+    }
+
+    .select:hover{
+        .letter-options {
+            background-color: config.$purple;
+            color: config.$pure-white;
+        }
+    }
+
+    .correct {
+        padding: 20 20px 0 0;
+        border: 3px solid config.$success;
+
+        .letter-options {
+            background-color: config.$success;
+            color: config.$pure-white;
+        }
+
+        .question-options {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 320px;
+            width: 364px;
+        }
+
+        .question-options::after {
+            content: url('/assets/images/icon-correct.svg');
+        }
+    }
+
+    .wrong {
+        padding: 20 20px 0 0;
+        border: 3px solid config.$error;
+
+        .letter-options {
+            background-color: config.$error;
+            color: config.$pure-white;
+        }
+
+        .question-options {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 320px;
+            width: 364px;
+        }
+
+        .question-options::after {
+            content: url('/assets/images/icon-incorrect.svg');
+        }
+    }
+
+    .answer {
+        padding: 20 20px 0 0;
+
+        .question-options {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 320px;
+            width: 364px;
+        }
+
+        .question-options::after {
+            content: url('/assets/images/icon-correct.svg');
+        }
+    }
+}
+
+.submit {
+    width: 564px;
+    height: 92px;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 24px;
+    color: config.$pure-white;
+    background: config.$purple;
+    text-transform: capitalize;
+}
+
+.submit:hover {
+    cursor: pointer;
+    background-color: config.$purple-hover;
+    transition: .2s ease-in-out;
+}
+
+.error-message {
+    width: 564px;
+    height: 40px;
+    gap: 8px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: config.$error;
+    justify-content: center;
+    display: none;
+}
+
+.error-message::before {
+    content: url('/assets/images/icon-error.svg');
+    width: 40px;
+    height: 40px;
+}
