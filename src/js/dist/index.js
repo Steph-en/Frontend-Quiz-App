@@ -94,8 +94,25 @@ function QuizData() {
             default:
                 console.log("unknown category");
         }
-        console.log(filteredCategoryQuestions);
         return filteredCategoryQuestions;
     });
 }
 QuizData();
+// const quizData = QuizData(); 
+// QuizData().then(quiz => {
+//     const quizDataString = JSON.stringify(quiz);
+//     localStorage.setItem("quizData", quizDataString);
+// });
+const Title = document.getElementById("lesson-title");
+QuizData().then(quizData => {
+    console.log("Quiz Data:", quizData);
+    if (Title && quizData) {
+        const quizTitle = quizData.title;
+        Title.innerHTML = quizTitle;
+    }
+    else {
+        console.error("Element with ID 'lesson-title' not found or no quiz data found.");
+    }
+}).catch(error => {
+    console.error("Error fetching quiz data:", error);
+});
