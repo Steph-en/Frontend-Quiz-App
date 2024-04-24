@@ -92,11 +92,10 @@ function selectSingleOption() {
         });
         clickedOption.classList.add("select");
     }
-
+    
     Options.forEach(option => {
         option.addEventListener("click", handleOptionClick);
     });
-
 }
 selectSingleOption();
 
