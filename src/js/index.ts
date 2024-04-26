@@ -1,3 +1,5 @@
+QuizData()
+
 // dark mode settings here
 function toggle() {
     const theme: boolean = document.documentElement.classList.toggle('dark-theme');
@@ -8,6 +10,26 @@ function toggle() {
     // Store the theme state in local storage
     localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
 }
+
+// Select function
+function selectSingleOption() {
+    const Optn = document.querySelectorAll<HTMLElement>(".question-content");
+
+    function handleOptionClick(event: Event) {
+        const clickedOption = event.currentTarget as HTMLElement;
+        Optn.forEach(option => {
+            if (option !== clickedOption) {
+                option.removeEventListener("click", handleOptionClick);
+            }
+        });
+        clickedOption.classList.add("select");
+    }
+
+    Optn.forEach(option => {
+        option.addEventListener("click", handleOptionClick);
+    });
+}
+selectSingleOption();
 
 interface QuestionType {
     quizzes: Array<{
@@ -37,15 +59,15 @@ interface Questions {
     answer: string;
 }
 
-let Questions: QuestionType = { quizzes: [] };
 
-// Selected Category;
+// Selected Category | Mouse
 document.querySelectorAll(".category-link").forEach((link) => {
     link.addEventListener("click", navigateCategory);
 });
 
+// Selected Category | Keyboard
 document.querySelectorAll(".category-link").forEach((link) => {
-    link.addEventListener("keydown", function (event) {
+    link.addEventListener("keydown", (event) => {
         navigateCategory(event);
     });
 });
@@ -53,12 +75,10 @@ document.querySelectorAll(".category-link").forEach((link) => {
 // Finding Link to the selected category
 function navigateCategory(event: Event | KeyboardEvent) {
     const categoryTarget = event.currentTarget as HTMLAnchorElement;
-    const categoryTitle = categoryTarget
-        .querySelector(".categories-titles")
-        ?.textContent?.toLowerCase();
+    const categoryTitle = categoryTarget.querySelector(".categories-titles")?.textContent?.toLowerCase();
 
     if (categoryTitle) {
-        categoryTarget.href = `./questions.html?category=${categoryTitle}`;
+        categoryTarget.href = `/questions.html?category=${categoryTitle}`;
     }
 
     switch (categoryTitle) {
@@ -79,33 +99,15 @@ function navigateCategory(event: Event | KeyboardEvent) {
     }
 }
 
-// Select function
-function selectSingleOption() {
-    const Options = document.querySelectorAll<HTMLElement>(".question-content");
-
-    function handleOptionClick(event: Event) {
-        const clickedOption = event.currentTarget as HTMLElement;
-        Options.forEach(option => {
-            if (option !== clickedOption) {
-                option.removeEventListener("click", handleOptionClick);
-            }
-        });
-        clickedOption.classList.add("select");
-    }
-    
-    Options.forEach(option => {
-        option.addEventListener("click", handleOptionClick);
-    });
-}
-selectSingleOption();
-
 let filteredCategoryQuestions: Quiz;
+let Questions: QuestionType = { quizzes: [] };
 
 // Get quiz data from JSON file
 async function QuizData() {
     let response = await fetch(`/src/js/data.json`);
-    let data = await response.json()
-    Questions = data;
+    let request = await response.json()
+
+    Questions = request;
 
     const category = localStorage.getItem("selectedCategory");
     switch (category) {
@@ -126,31 +128,13 @@ async function QuizData() {
     }
     return filteredCategoryQuestions;
 }
-QuizData()
-
-// Getting and setting quiz title
-const Title = document.getElementById("lesson-title");
-
-QuizData().then(quizData => {
-    console.log("Quiz Data:", quizData);
-    if (Title && quizData) {
-        const quizTitle = quizData.title;
-        Title.innerHTML = quizTitle;
-    } else {
-        console.error("Element with ID 'lesson-title' not found or no quiz data found.");
-    }
-}).catch(() => {
-    console.error("Error fetching quiz data:");
-});
 
 // Getting and setting quiz icon
 const Icon = document.getElementById("lesson-icon") as HTMLImageElement;
 
 QuizData().then(quizData => {
-    console.log("Quiz Data:", quizData);
     if (Icon && quizData) {
-        const quizIconSrc = quizData.icon;
-        Icon.src = quizIconSrc;
+        Icon.src = quizData.icon;
     } else {
         console.error("Element with ID 'lesson-icon' not found or no quiz data found.");
     }
@@ -160,8 +144,8 @@ QuizData().then(quizData => {
 
 // Function to get URL parameters
 function getUrlParameter(name: string): string | null {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(name);
+    const urlParameters = new URLSearchParams(window.location.search);
+    return urlParameters.get(name);
 }
 
 // Icon Background-color
@@ -184,25 +168,33 @@ function getLessonIconColor(lesson: string) {
 const selectedLesson = getUrlParameter("category");
 
 // Set icon background color based on selected lesson
-const Icons = document.getElementById("lesson-icon") as HTMLImageElement;
-if (Icons && selectedLesson) {
-    Icons.style.backgroundColor = getLessonIconColor(selectedLesson);
+if (Icon && selectedLesson) {
+    Icon.style.backgroundColor = getLessonIconColor(selectedLesson);
 } else {
     console.error("Element with ID 'lesson-icon' not found or no lesson selected.");
 }
 
+// Getting and setting quiz title
+const Title = document.getElementById("lesson-title") as HTMLParagraphElement;
+
+QuizData().then((quizData: Quiz) => {
+    if (Title && quizData) {
+        Title.innerHTML = quizData.title;
+    } else {
+        console.error("Element with ID 'lesson-title' not found or no quiz data found.");
+    }
+}).catch(() => {
+    console.error("Error fetching quiz data:");
+});
+
 // Getting and setting quiz questions
 const Question = document.getElementById("question");
 
-QuizData().then(quizData => {
-    console.log("Quiz Data:", quizData);
-    if (Question && quizData) {
-        let questionsHTML = "";
-        quizData.questions.forEach(question => {
-            questionsHTML += `<div class="question">${question.question}</div>`;
-            // You can append options and other question details here as needed
-        });
-        Question.innerHTML = questionsHTML;
+QuizData().then((quizData) => {
+    if (Question && quizData && quizData.questions.length > 0) {
+        const firstQuestion = quizData.questions[0]; // Get the first question
+        const questionHTML = `<div class="question">${firstQuestion.question}</div>`;
+        Question.innerHTML = questionHTML;
     } else {
         console.error("Element with ID 'question' not found or no quiz data found.");
     }
@@ -210,3 +202,38 @@ QuizData().then(quizData => {
     console.error("Error fetching quiz data:");
 });
 
+// Dispaly the options dynamically
+let Optn;
+let filteredOptions: Array<string>;
+
+async function QuizOption() {
+    try {
+        const response = await fetch(`/src/js/data.json`);
+        const request = await response.json();
+
+        Optn = request;
+        console.log(`Options`, Optn);
+
+        const category = localStorage.getItem("selectedCategory");
+        switch (category) {
+            case "html":
+                filteredOptions = Optn.quizzes[0].questions[0].options;
+                break;
+            case "css":
+                filteredOptions = Optn.quizzes[1].questions[0].options;
+                break;
+            case "javascript":
+                filteredOptions = Optn.quizzes[2].questions[0].options;
+                break;
+            case "accessibility":
+                filteredOptions = Optn.quizzes[3].questions[0].options;
+                break;
+            default:
+                console.log("Unknown category");
+        }
+        console.log("Filtered options:", filteredOptions);
+        return filteredOptions;
+    } catch (error) {
+        console.error("Error fetching quiz data:", error);
+    }
+}

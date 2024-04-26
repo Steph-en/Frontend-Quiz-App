@@ -191,15 +191,15 @@ body {
             font-weight: 500px;
             background: none;
         }
-    }
-
-    .question-content:hover {
-        .letter-options {
-            background-color: #F6E7FF;
-            transition: .1s ease-in-out;
-            color: config.$purple;
+        &:hover {
+            .letter-options {
+                background-color: #F6E7FF;
+                transition: .1s ease-in-out;
+                color: config.$purple;
+            }
         }
     }
+
 
     .select {
         border: 3px solid config.$purple;
@@ -208,12 +208,11 @@ body {
             background-color: config.$purple;
             color: config.$pure-white;
         }
-    }
-
-    .select:hover{
-        .letter-options {
-            background-color: config.$purple;
-            color: config.$pure-white;
+        &:hover{
+            .letter-options {
+                background-color: config.$purple;
+                color: config.$pure-white;
+            }
         }
     }
 
@@ -290,13 +289,13 @@ body {
     color: config.$pure-white;
     background: config.$purple;
     text-transform: capitalize;
+    &:hover {
+        cursor: pointer;
+        background-color: config.$purple-hover;
+        transition: .2s ease-in-out;
+    }
 }
 
-.submit:hover {
-    cursor: pointer;
-    background-color: config.$purple-hover;
-    transition: .2s ease-in-out;
-}
 
 .error-message {
     width: 564px;
