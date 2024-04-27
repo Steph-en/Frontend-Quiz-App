@@ -1,35 +1,27 @@
+toggle() 
 QuizData()
 
-// dark mode settings here
-function toggle() {
-    const theme: boolean = document.documentElement.classList.toggle('dark-theme');
-
-    // Check if the 'dark-theme' class is currently applied
-    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
-
-    // Store the theme state in local storage
-    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
-}
-
 // Select function
-function selectSingleOption() {
-    const Optn = document.querySelectorAll<HTMLElement>(".question-content");
+function selectSingleOption(optionHTML: string) {
+    const options = document.querySelectorAll(".question-content");
 
     function handleOptionClick(event: Event) {
         const clickedOption = event.currentTarget as HTMLElement;
-        Optn.forEach(option => {
+        options.forEach((option) => {
             if (option !== clickedOption) {
+                option.classList.remove("select");
                 option.removeEventListener("click", handleOptionClick);
             }
         });
         clickedOption.classList.add("select");
+        console.log(clickedOption);
     }
 
-    Optn.forEach(option => {
+    options.forEach(option => {
         option.addEventListener("click", handleOptionClick);
     });
 }
-selectSingleOption();
+
 
 interface QuestionType {
     quizzes: Array<{
@@ -187,53 +179,97 @@ QuizData().then((quizData: Quiz) => {
     console.error("Error fetching quiz data:");
 });
 
-// Getting and setting quiz questions
+// qtn, optn, qNum && pBar
 const Question = document.getElementById("question");
+const submitButton = document.querySelector(".submit");
+const optionsContainer = document.querySelector('.options');
+
+let currentQuestionIndex = 0;
+
+function displayQuestion(quizData: Quiz, index: number) {
+    if (Question && optionsContainer  && quizData && quizData.questions.length > index) {
+        const currentQuestion = quizData.questions[index];
+        const questionHTML = `<div class="question">${currentQuestion.question}</div>`;
+        Question.innerHTML = questionHTML;
+
+        const filteredOptions = quizData.questions[index].options;
+        // console.log(filteredOptions);
+        
+        const QuestionNumber = document.getElementById('question-num')
+        QuizData().then((quizData) => {
+            if (QuestionNumber && quizData.questions.length > 0) {
+                let questionNum;
+                if (index === 9) {
+                    questionNum = `<div class="question-num">Question 10 of 10</div>`;
+                } else {
+                    questionNum = `<div class="question-num">Question ${String.fromCharCode(49 + index)} of 10</div>`;
+                }
+                QuestionNumber.innerHTML = questionNum;
+            } else {
+                console.error("Element with ID 'question-num' not found or no quiz data found.");
+            }
+
+            if (QuestionNumber && quizData.questions.length > 0) {
+                const totalQuestions = quizData.questions.length;
+                const progressPercentage = ((index + 1) / totalQuestions) * 100;
+                const progressBar = document.getElementById('level');
+                if (progressBar) {
+                    progressBar.style.width = `${progressPercentage}%`;
+                }
+            } else {
+                console.error("Element with ID 'question-num' not found or no quiz data found.");
+            }
+
+        }).catch(() => {
+            console.error("Error fetching quiz data:");
+        });
+
+        const optionsContainer = document.querySelector('.options');
+        let optionHTML = '';
+        filteredOptions.forEach((option, index) => {
+            optionHTML += `<div class="question-content" tabindex="0">
+            <p class="letter-options">${String.fromCharCode(65 + index)}</p>
+            <p class="question-options">${escapeHtml(option)}</p>
+            </div>`;
+            selectSingleOption(optionHTML)
+        });
+        if(optionsContainer) {
+            optionsContainer.innerHTML = optionHTML
+        }
+    } else {
+        console.error("Element with ID 'question' not found, no quiz data found, or no questions available.");
+    }
+}
 
 QuizData().then((quizData) => {
-    if (Question && quizData && quizData.questions.length > 0) {
-        const firstQuestion = quizData.questions[0]; // Get the first question
-        const questionHTML = `<div class="question">${firstQuestion.question}</div>`;
-        Question.innerHTML = questionHTML;
-    } else {
-        console.error("Element with ID 'question' not found or no quiz data found.");
-    }
+    displayQuestion(quizData, currentQuestionIndex);
 }).catch(() => {
     console.error("Error fetching quiz data:");
 });
 
-// Dispaly the options dynamically
-let Optn;
-let filteredOptions: Array<string>;
+submitButton?.addEventListener("click", () => {
+    currentQuestionIndex++;
+    QuizData().then((quizData) => {
+        displayQuestion(quizData, currentQuestionIndex);
+    }).catch(() => {
+        console.error("Error fetching quiz data:");
+    });
+});
 
-async function QuizOption() {
-    try {
-        const response = await fetch(`/src/js/data.json`);
-        const request = await response.json();
 
-        Optn = request;
-        console.log(`Options`, Optn);
+function escapeHtml(html: string): string {
+    return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
 
-        const category = localStorage.getItem("selectedCategory");
-        switch (category) {
-            case "html":
-                filteredOptions = Optn.quizzes[0].questions[0].options;
-                break;
-            case "css":
-                filteredOptions = Optn.quizzes[1].questions[0].options;
-                break;
-            case "javascript":
-                filteredOptions = Optn.quizzes[2].questions[0].options;
-                break;
-            case "accessibility":
-                filteredOptions = Optn.quizzes[3].questions[0].options;
-                break;
-            default:
-                console.log("Unknown category");
-        }
-        console.log("Filtered options:", filteredOptions);
-        return filteredOptions;
-    } catch (error) {
-        console.error("Error fetching quiz data:", error);
-    }
+
+
+// dark mode settings here
+function toggle() {
+    const theme: boolean = document.documentElement.classList.toggle('dark-theme');
+
+    // Check if the 'dark-theme' class is currently applied
+    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
+
+    // Store the theme state in local storage
+    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
 }

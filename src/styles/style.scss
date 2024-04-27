@@ -35,12 +35,16 @@ html {
 
 body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-image: var(--bg-image);
     background-color: var(--bg-primary);
+}
+
+.head {
+    width: 1150px;
 }
 
 .main {
@@ -50,23 +54,14 @@ body {
     flex-direction: column;
 }
 
-.head {
-    width: 1157px;
-}
-
-.menu {
-    color: var(--font-color-primary);
-    margin: 30px 224px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .container {
-    width: 1160px;
+    color: var(--font-color-primary);
+    margin: 10px 230px;
+    width: 1150px;
     height: 456px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .menu-heading {
@@ -113,9 +108,9 @@ body {
         flex-direction: row;
         align-items: center;
         border-radius: 24px;
-        background-color: var(--bg-secondary);
         text-decoration: none;
         color: var(--font-color-primary);
+        background-color: var(--bg-secondary);
 
         .categories-titles {
             font-size: 28px;
@@ -123,7 +118,7 @@ body {
             background: none;
         }
 
-        .icon1 {
+        .icn {
             width: 56px;
             height: 56px;
             padding: 10px;
@@ -131,43 +126,134 @@ body {
             border-radius: 8px;
             align-items: center;
             justify-content: center;
+        }
+
+        .icon1 {
             background: var(--bg-html);
         }
 
         .icon2 {
-            width: 56px;
-            height: 56px;
-            padding: 10px;
-            display: flex;
-            border-radius: 8px;
-            align-items: center;
-            justify-content: center;
             background: var(--bg-css);
         }
 
         .icon3 {
-            width: 56px;
-            height: 56px;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
             background: var(--bg-js);
         }
 
         .icon4 {
-            width: 56px;
-            height: 56px;
-            padding: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
             background: var(--bg-acc);
         }
     }
 }
 
-// @use "tablet";
-// @use "mobile";
+@media (max-width: 1024px) {
+    body {
+        height: 100vh;
+        width: 100dvw;
+        overflow-x: hidden;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .main {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 80px;
+    }
+
+    .head {
+        width: 640px;
+        height: auto;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 64px;
+    }
+
+    .menu-heading {
+        width: 640px;
+    }
+
+    .lessons {
+        width: 640px;
+
+        .category-link {
+            height: 80px;
+            border-radius: 12px;
+
+            .categories-titles {
+                font-size: 28px;
+            }
+
+            .icn {
+                width: 56px;
+                height: 56px;
+                border-radius: 6px;
+            }
+        }
+    }
+}
+
+@media (max-width: 475px) {
+    body {
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        background-size: cover;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .main {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .head {
+        width: 375px;
+        height: auto;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .menu-heading {
+        gap: 16;
+        width: 375px;
+
+        h1 {
+            font-size: 40px;
+        }
+    }
+
+    .lessons {
+        width: 375px;
+
+        .category-link {
+            height: 64px;
+            border-radius: 12px;
+
+            .categories-titles {
+                font-size: 18px;
+            }
+
+            .icn {
+                width: 40px;
+                height: 40px;
+                border-radius: 6px;
+            }
+        }
+    }
+}
