@@ -27,10 +27,10 @@
 
 *,
 html {
-    font-family: config.$font-stack;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: config.$font-stack;
 }
 
 body {
@@ -44,7 +44,7 @@ body {
 }
 
 .head {
-    width: 1150px;
+    width: 70%;
 }
 
 .main {
@@ -55,23 +55,21 @@ body {
 }
 
 .container {
-    color: var(--font-color-primary);
-    margin: 10px 230px;
-    width: 1150px;
-    height: 456px;
+    width: 65%;
+    height: 45vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    justify-content: space-between;
+    color: var(--font-color-primary);
 }
 
 .menu-heading {
-    width: 564px;
-    height: inherit;
-    gap: 48px;
-    width: 465;
-    height: 214px;
+    width: 100%;
+    height: 25vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
     h1 {
         margin: 0;
@@ -92,11 +90,11 @@ body {
 }
 
 .lessons {
-    width: 564px;
+    width: 100%;
     height: inherit;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    justify-content: space-between;
 
     .category-link {
         cursor: pointer;
@@ -147,43 +145,40 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
-    // body {
-    //     width: 100%;
-    //     height: auto;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     // background-position: cover;
-    //     // background-size: cover;
-    // }
+    body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // background-position: cover;
+        // background-size: cover;
+    }
 
     .main {
         margin: 0;
-        padding: 0;
+        padding: 10px;
         display: flex;
         flex-direction: column;
-        gap: 80px;
     }
 
     .head {
-        width: 640px;
-        height: auto;
+        width: 100vw;
     }
 
     .container {
         display: flex;
+        align-items: baseline;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 64px;
+        justify-content: space-between;
     }
 
-    // .menu-heading {
-    //     width: 640px;
-    // }
+    .menu-heading {
+        width: 640px;
+    }
 
     .lessons {
-        // width: 640px;
+        width: 100%;
 
         .category-link {
             height: 80px;
@@ -202,14 +197,14 @@ body {
     }
 }
 
-@media (max-width: 475px) {
-    // body {
-    //     padding: 0;
-    //     width: 100%;
-    //     overflow-x: hidden;
-    //     background-size: cover;
-    //     background-position: center;
-    // }
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+        background-size: cover;
+        background-position: center;
+    }
 
     .main {
         margin: 0;

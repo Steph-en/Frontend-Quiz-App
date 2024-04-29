@@ -223,5 +223,5 @@ function toggle() {
     // Check if the 'dark-theme' class is currently applied
     const isDarkTheme = document.documentElement.classList.contains('dark-theme');
     // Store the theme state in local storage
-    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
 }

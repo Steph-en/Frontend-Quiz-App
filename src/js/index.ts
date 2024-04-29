@@ -1,4 +1,4 @@
-toggle() 
+toggle()
 QuizData()
 
 interface QuestionType {
@@ -164,14 +164,14 @@ const optionsContainer = document.querySelector('.options');
 let currentQuestionIndex = 0;
 
 function displayQuestion(quizData: Quiz, index: number) {
-    if (Question && optionsContainer  && quizData && quizData.questions.length > index) {
+    if (Question && optionsContainer && quizData && quizData.questions.length > index) {
         const currentQuestion = quizData.questions[index];
         const questionHTML = `<div class="question">${currentQuestion.question}</div>`;
         Question.innerHTML = questionHTML;
 
         const filteredOptions = quizData.questions[index].options;
         // console.log(filteredOptions);
-        
+
         const QuestionNumber = document.getElementById('question-num')
         QuizData().then((quizData) => {
             if (QuestionNumber && quizData.questions.length > 0) {
@@ -209,7 +209,7 @@ function displayQuestion(quizData: Quiz, index: number) {
             <p class="question-options">${escapeHtml(option)}</p>
             </div>`;
         });
-        if(optionsContainer) {
+        if (optionsContainer) {
             optionsContainer.innerHTML = optionHTML
         }
     } else {
@@ -262,11 +262,11 @@ function escapeHtml(html: string): string {
 
 // dark mode settings here
 function toggle() {
-    const theme: boolean = document.documentElement.classList.toggle('dark-theme');
+    const theme = document.documentElement.classList.toggle('dark-theme');
 
     // Check if the 'dark-theme' class is currently applied
     const isDarkTheme = document.documentElement.classList.contains('dark-theme');
 
     // Store the theme state in local storage
-    localStorage.setItem('theme', isDarkTheme ? 'dark' : 'light');
+    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
 }
