@@ -170,7 +170,7 @@ function displayQuestion(quizData, index) {
         const optionsContainer = document.querySelector('.options');
         let optionHTML = '';
         filteredOptions.forEach((option, index) => {
-            optionHTML += `<div class="question-content" tabindex="0">
+            optionHTML += `<div class="question-content select" tabindex="0">
             <p class="letter-options">${String.fromCharCode(65 + index)}</p>
             <p class="question-options">${escapeHtml(option)}</p>
             </div>`;

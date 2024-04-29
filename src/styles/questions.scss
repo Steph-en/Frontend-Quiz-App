@@ -203,18 +203,21 @@ body {
 
 
     .select {
-        border: 3px solid config.$purple;
-
+        
         .letter-options {
             background-color: config.$purple;
             color: config.$pure-white;
         }
-
+        
         &:hover {
             .letter-options {
                 background-color: config.$purple;
                 color: config.$pure-white;
             }
+        }
+        
+        &:focus{
+            border: 3px solid config.$purple;
         }
     }
 
@@ -235,7 +238,7 @@ body {
             width: 364px;
         }
 
-        .question-options::after {
+        &::after {
             content: url('/assets/images/icon-correct.svg');
         }
     }
@@ -294,8 +297,8 @@ body {
 
     &:hover {
         cursor: pointer;
-        background-color: config.$purple-hover;
         transition: .2s ease-in-out;
+        background-color: config.$purple-hover;
     }
 }
 
@@ -318,116 +321,117 @@ body {
     height: 40px;
 }
 
-@media screen and (max-width: 1024px) {
-    body {
-        width: 100%;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        // background-position: cover;
-        // background-size: cover;
-    }
+// @media (max-width: 1024px) {
+//     body {
+//         width: 100dvw;
+//         height: 100%;
+//         background-size: cover;
+//         background-position: center;
+//         overflow-x: hidden;
+//         display: flex;
+//         align-items: center;
+//         justify-content: center;
+//     }
 
-    .main {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 80px;
-    }
+//     .main {
+//         gap: 80px;
+//         margin: 0;
+//         padding: 0;
+//         display: flex;
+//         flex-direction: column;
+//     }
 
-    .head {
-        width: 640px;
-        height: auto;
-    }
+//     .head {
+//         width: 500px;
+//         height: 56px;
+//     }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 64px;
-    }
+//     .container {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         gap: 64px;
+//     }
 
-    .menu-heading {
-        width: 640px;
-    }
+//     .menu-heading {
+//         width: 640px;
+//     }
 
-    .lessons {
-        width: 100%;
+//     .lessons {
+//         width: 640px;
 
-        .category-link {
-            height: 80px;
-            border-radius: 12px;
+//         .category-link {
+//             height: 80px;
+//             border-radius: 12px;
 
-            .categories-titles {
-                font-size: 28px;
-            }
+//             .categories-titles {
+//                 font-size: 28px;
+//             }
 
-            .icn {
-                width: 56px;
-                height: 56px;
-                border-radius: 6px;
-            }
-        }
-    }
-}
+//             .icn {
+//                 width: 56px;
+//                 height: 56px;
+//                 border-radius: 6px;
+//             }
+//         }
+//     }
+// }
 
-@media (max-width: 600px) {
-    body {
-        padding: 0;
-        width: 100%;
-        overflow-x: hidden;
-        background-size: cover;
-        background-position: center;
-    }
+// @media (max-width: 475px) {
+//     body {
+//         width: 100%;
+//         background-size: cover;
+//         overflow-x: hidden;
+//         padding: 0;
+//         background-size: cover;
+//         background-position: center;
+//     }
 
-    .main {
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
+//     .main {
+//         margin: 0;
+//         padding: 0;
+//         display: flex;
+//         flex-direction: column;
+//         gap: 5px;
+//     }
 
-    .head {
-        width: 375px;
-        height: auto;
-    }
+//     .head {
+//         width: 375px;
+//         height: auto;
+//     }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 40px;
-    }
+//     .container {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         gap: 40px;
+//     }
 
-    .menu-heading {
-        gap: 16;
-        width: 375px;
+//     .menu-heading {
+//         gap: 16;
+//         width: 375px;
 
-        h1 {
-            font-size: 40px;
-        }
-    }
+//         h1 {
+//             font-size: 40px;
+//         }
+//     }
 
-    .lessons {
-        width: 375px;
+//     .lessons {
+//         width: 375px;
 
-        .category-link {
-            height: 64px;
-            border-radius: 12px;
+//         .category-link {
+//             height: 64px;
+//             border-radius: 12px;
 
-            .categories-titles {
-                font-size: 18px;
-            }
+//             .categories-titles {
+//                 font-size: 18px;
+//             }
 
-            .icn {
-                width: 40px;
-                height: 40px;
-                border-radius: 6px;
-            }
-        }
-    }
-}
+//             .icn {
+//                 width: 40px;
+//                 height: 40px;
+//                 border-radius: 6px;
+//             }
+//         }
+//     }
+// }

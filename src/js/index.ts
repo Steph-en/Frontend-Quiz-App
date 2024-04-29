@@ -161,6 +161,8 @@ const Question = document.getElementById("question");
 const submitButton = document.querySelector(".submit");
 const optionsContainer = document.querySelector('.options');
 
+const options = document.querySelectorAll(".question-content");
+
 let currentQuestionIndex = 0;
 
 function displayQuestion(quizData: Quiz, index: number) {
@@ -201,10 +203,22 @@ function displayQuestion(quizData: Quiz, index: number) {
             console.error("Error fetching quiz data:");
         });
 
+        function handleOptionClick(event: Event) {
+            const clickedOption = event.currentTarget as HTMLElement;
+            options.forEach((option) => {
+                if (option !== clickedOption) {
+                    option.classList.remove("select");
+                    option.removeEventListener("click", handleOptionClick);
+                }
+            });
+            clickedOption.classList.add("select");
+            console.log(clickedOption);
+        }
+        
         const optionsContainer = document.querySelector('.options');
         let optionHTML = '';
         filteredOptions.forEach((option, index) => {
-            optionHTML += `<div class="question-content" tabindex="0">
+            optionHTML += `<div class="question-content select" tabindex="0">
             <p class="letter-options">${String.fromCharCode(65 + index)}</p>
             <p class="question-options">${escapeHtml(option)}</p>
             </div>`;
@@ -234,22 +248,8 @@ submitButton?.addEventListener("click", () => {
 
 // Select function
 function selectSingleOption(optionHTML: string) {
-    const options = document.querySelectorAll(".question-content");
-
-    function handleOptionClick(event: Event) {
-        const clickedOption = event.currentTarget as HTMLElement;
-        options.forEach((option) => {
-            if (option !== clickedOption) {
-                option.classList.remove("select");
-                option.removeEventListener("click", handleOptionClick);
-            }
-        });
-        clickedOption.classList.add("select");
-        console.log(clickedOption);
-    }
-
     options.forEach(option => {
-        option.addEventListener("click", handleOptionClick);
+        option.addEventListener("click", handleOptionClick());
     });
 }
 
