@@ -10,24 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 toggle();
 QuizData();
-// Select function
-function selectSingleOption(optionHTML) {
-    const options = document.querySelectorAll(".question-content");
-    function handleOptionClick(event) {
-        const clickedOption = event.currentTarget;
-        options.forEach((option) => {
-            if (option !== clickedOption) {
-                option.classList.remove("select");
-                option.removeEventListener("click", handleOptionClick);
-            }
-        });
-        clickedOption.classList.add("select");
-        console.log(clickedOption);
-    }
-    options.forEach(option => {
-        option.addEventListener("click", handleOptionClick);
-    });
-}
 // Selected Category | Mouse
 document.querySelectorAll(".category-link").forEach((link) => {
     link.addEventListener("click", navigateCategory);
@@ -192,7 +174,6 @@ function displayQuestion(quizData, index) {
             <p class="letter-options">${String.fromCharCode(65 + index)}</p>
             <p class="question-options">${escapeHtml(option)}</p>
             </div>`;
-            selectSingleOption(optionHTML);
         });
         if (optionsContainer) {
             optionsContainer.innerHTML = optionHTML;
@@ -215,6 +196,24 @@ submitButton === null || submitButton === void 0 ? void 0 : submitButton.addEven
         console.error("Error fetching quiz data:");
     });
 });
+// Select function
+function selectSingleOption(optionHTML) {
+    const options = document.querySelectorAll(".question-content");
+    function handleOptionClick(event) {
+        const clickedOption = event.currentTarget;
+        options.forEach((option) => {
+            if (option !== clickedOption) {
+                option.classList.remove("select");
+                option.removeEventListener("click", handleOptionClick);
+            }
+        });
+        clickedOption.classList.add("select");
+        console.log(clickedOption);
+    }
+    options.forEach(option => {
+        option.addEventListener("click", handleOptionClick);
+    });
+}
 function escapeHtml(html) {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

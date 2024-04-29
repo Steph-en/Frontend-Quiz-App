@@ -1,28 +1,6 @@
 toggle() 
 QuizData()
 
-// Select function
-function selectSingleOption(optionHTML: string) {
-    const options = document.querySelectorAll(".question-content");
-
-    function handleOptionClick(event: Event) {
-        const clickedOption = event.currentTarget as HTMLElement;
-        options.forEach((option) => {
-            if (option !== clickedOption) {
-                option.classList.remove("select");
-                option.removeEventListener("click", handleOptionClick);
-            }
-        });
-        clickedOption.classList.add("select");
-        console.log(clickedOption);
-    }
-
-    options.forEach(option => {
-        option.addEventListener("click", handleOptionClick);
-    });
-}
-
-
 interface QuestionType {
     quizzes: Array<{
         title: string;
@@ -50,7 +28,6 @@ interface Questions {
     options: Array<string>;
     answer: string;
 }
-
 
 // Selected Category | Mouse
 document.querySelectorAll(".category-link").forEach((link) => {
@@ -231,7 +208,6 @@ function displayQuestion(quizData: Quiz, index: number) {
             <p class="letter-options">${String.fromCharCode(65 + index)}</p>
             <p class="question-options">${escapeHtml(option)}</p>
             </div>`;
-            selectSingleOption(optionHTML)
         });
         if(optionsContainer) {
             optionsContainer.innerHTML = optionHTML
@@ -255,6 +231,27 @@ submitButton?.addEventListener("click", () => {
         console.error("Error fetching quiz data:");
     });
 });
+
+// Select function
+function selectSingleOption(optionHTML: string) {
+    const options = document.querySelectorAll(".question-content");
+
+    function handleOptionClick(event: Event) {
+        const clickedOption = event.currentTarget as HTMLElement;
+        options.forEach((option) => {
+            if (option !== clickedOption) {
+                option.classList.remove("select");
+                option.removeEventListener("click", handleOptionClick);
+            }
+        });
+        clickedOption.classList.add("select");
+        console.log(clickedOption);
+    }
+
+    options.forEach(option => {
+        option.addEventListener("click", handleOptionClick);
+    });
+}
 
 
 function escapeHtml(html: string): string {
