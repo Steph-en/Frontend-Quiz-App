@@ -219,7 +219,7 @@ function escapeHtml(html) {
 }
 // dark mode settings here
 function toggle() {
-    const theme = document.documentElement.classList.toggle('dark-theme');
+    document.documentElement.classList.toggle('dark-theme');
     // Check if the 'dark-theme' class is currently applied
     const isDarkTheme = document.documentElement.classList.contains('dark-theme');
     // Store the theme state in local storage

@@ -260,11 +260,9 @@ function escapeHtml(html: string): string {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-
-
 // dark mode settings here
 function toggle() {
-    const theme = document.documentElement.classList.toggle('dark-theme');
+    document.documentElement.classList.toggle('dark-theme');
 
     // Check if the 'dark-theme' class is currently applied
     const isDarkTheme = document.documentElement.classList.contains('dark-theme');
