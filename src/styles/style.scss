@@ -12,7 +12,9 @@
     --bg-acc: #F6E7FF;
     --sun-icon: url(/assets/images/icon-sun-dark.svg);
     --moon-icon: url(/assets/images/icon-moon-dark.svg);
-    --bg-image: url(/assets/images/pattern-background-desktop-light.svg);
+    --bg-image-pc: url(/assets/images/pattern-background-desktop-light.svg);
+    --bg-image-tablet: url(/assets/images/pattern-background-tablet-light.svg);
+    --bg-image-mobile: url(/assets/images/pattern-background-mobile-light.svg);
 }
 
 .dark-theme {
@@ -22,7 +24,9 @@
     --font-color-secondary: #ABC1E1;
     --sun-icon: url(/assets/images/icon-sun-light.svg);
     --moon-icon: url(/assets/images/icon-moon-light.svg);
-    --bg-image: url(/assets/images/pattern-background-desktop-dark.svg);
+    --bg-image-pc: url(/assets/images/pattern-background-desktop-dark.svg);
+    --bg-image-tablet: url(/assets/images/pattern-background-tablet-dark.svg);
+    --bg-image-mobile: url(/assets/images/pattern-background-mobile-dark.svg);
 }
 
 *,
@@ -39,7 +43,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: var(--bg-image);
+    background-image: var(--bg-image-pc);
     background-color: var(--bg-primary);
 }
 
@@ -152,7 +156,7 @@ body {
         height: 100vh;
         background-size: cover;
         background-position: center;
-        background-image: url(/assets/images/pattern-background-tablet-dark.svg);
+        background-image: url(var(--bg-image-tablet));
     }
 
     .main {
@@ -207,7 +211,7 @@ body {
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url(/assets/images/pattern-background-mobile-dark.svg);
+        background-image: var(--bg-image-mobile);
     }
 
     .main {
