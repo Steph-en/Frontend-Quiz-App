@@ -130,6 +130,7 @@ QuizData().then((quizData) => {
 const Question = document.getElementById("question");
 const submitButton = document.querySelector(".submit");
 const optionsContainer = document.querySelector('.options');
+const options = document.querySelectorAll(".question-content");
 let currentQuestionIndex = 0;
 function displayQuestion(quizData, index) {
     if (Question && optionsContainer && quizData && quizData.questions.length > index) {
@@ -167,6 +168,23 @@ function displayQuestion(quizData, index) {
         }).catch(() => {
             console.error("Error fetching quiz data:");
         });
+        // Select function
+        function selectSingleOption(optionHTML) {
+            function handleOptionClick(event) {
+                const clickedOption = event.currentTarget;
+                options.forEach((option) => {
+                    if (option !== clickedOption) {
+                        option.classList.remove("select");
+                        option.removeEventListener("click", handleOptionClick);
+                    }
+                });
+                clickedOption.classList.add("select");
+                console.log(clickedOption);
+            }
+            options.forEach(option => {
+                option.addEventListener("click", handleOptionClick);
+            });
+        }
         const optionsContainer = document.querySelector('.options');
         let optionHTML = '';
         filteredOptions.forEach((option, index) => {
@@ -196,24 +214,6 @@ submitButton === null || submitButton === void 0 ? void 0 : submitButton.addEven
         console.error("Error fetching quiz data:");
     });
 });
-// Select function
-function selectSingleOption(optionHTML) {
-    const options = document.querySelectorAll(".question-content");
-    function handleOptionClick(event) {
-        const clickedOption = event.currentTarget;
-        options.forEach((option) => {
-            if (option !== clickedOption) {
-                option.classList.remove("select");
-                option.removeEventListener("click", handleOptionClick);
-            }
-        });
-        clickedOption.classList.add("select");
-        console.log(clickedOption);
-    }
-    options.forEach(option => {
-        option.addEventListener("click", handleOptionClick);
-    });
-}
 function escapeHtml(html) {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }

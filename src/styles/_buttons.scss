@@ -1,69 +1,67 @@
 @use "config";
 
 .head {
-    margin: 0;
-    padding: 0;
-    margin: 90px;
+    margin: 60px 0;
+}
 
-    .toggle {
-        gap: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        justify-content: flex-end;
+.toggle {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: flex-end;
 
-        .icon {
-            width: 24px;
-            height: 24px;
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .sun-icon::before {
+        content: var(--sun-icon);
+    }
+
+    .moon-icon::before {
+        content: var(--moon-icon);
+    }
+
+    .toggle-btn {
+
+        #toggle {
+            display: none;
         }
 
-        .sun-icon::before {
-            content: var(--sun-icon);
-        }
-
-        .moon-icon::before {
-            content: var(--moon-icon);
-        }
-
-        .toggle-btn {
-
-            #toggle {
-                display: none;
-            }
-
-            label {
-                display: inline-block;
-                width: 48px;
-                height: 28px;
-                background-color: config.$purple;
-                border-radius: 50px;
-                position: relative;
-                cursor: pointer;
-            }
-
-            label::before {
-                content: "";
-                position: absolute;
-                top: 4px;
-                left: 4px;
-                width: 20px;
-                height: 20px;
-                background-color: white;
-                border-radius: 50%;
-                transition: transform 0.3s;
-            }
-
-            #toggle:checked+label {
-                background-color: config.$purple;
-            }
-
-            #toggle:checked+label::before {
-                transform: translateX(20px);
-            }
-        }
-
-        .toggle-btn:hover {
+        label {
+            display: inline-block;
+            width: 48px;
+            height: 28px;
+            background-color: config.$purple;
+            border-radius: 50px;
+            position: relative;
             cursor: pointer;
         }
+
+        label::before {
+            content: "";
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+
+        #toggle:checked+label {
+            background-color: config.$purple;
+        }
+
+        #toggle:checked+label::before {
+            transform: translateX(20px);
+        }
+    }
+
+    .toggle-btn:hover {
+        cursor: pointer;
     }
 }
