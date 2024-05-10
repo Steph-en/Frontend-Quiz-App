@@ -8,8 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-toggle();
-QuizData();
+// dark mode settings here
+function toggle() {
+    const theme = document.documentElement.classList.toggle('dark-theme');
+    // Check if the 'dark-theme' class is currently applied
+    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
+    // Store the theme state in local storage
+    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
+}
 // Selected Category | Mouse
 document.querySelectorAll(".category-link").forEach((link) => {
     link.addEventListener("click", navigateCategory);
@@ -75,7 +81,7 @@ function QuizData() {
 }
 // Getting and setting quiz icon
 const Icon = document.getElementById("lesson-icon");
-QuizData().then(quizData => {
+QuizData().then((quizData) => {
     if (Icon && quizData) {
         Icon.src = quizData.icon;
     }
@@ -85,11 +91,6 @@ QuizData().then(quizData => {
 }).catch(() => {
     console.error("Error fetching quiz data:");
 });
-// Function to get URL parameters
-function getUrlParameter(name) {
-    const urlParameters = new URLSearchParams(window.location.search);
-    return urlParameters.get(name);
-}
 // Icon Background-color
 function getLessonIconColor(lesson) {
     switch (lesson) {
@@ -104,6 +105,11 @@ function getLessonIconColor(lesson) {
         default:
             return "#CCCCCC"; // Default color for other lessons
     }
+}
+// Function to get URL parameters
+function getUrlParameter(name) {
+    const urlParameters = new URLSearchParams(window.location.search);
+    return urlParameters.get(name);
 }
 // Get selected lesson from URL parameter
 const selectedLesson = getUrlParameter("category");
@@ -128,9 +134,9 @@ QuizData().then((quizData) => {
 });
 // qtn, optn, qNum && pBar
 const Question = document.getElementById("question");
-const submitButton = document.querySelector(".submit");
 const optionsContainer = document.querySelector('.options');
 const options = document.querySelectorAll(".question-content");
+const submitButton = document.querySelector(".submit");
 let currentQuestionIndex = 0;
 function displayQuestion(quizData, index) {
     if (Question && optionsContainer && quizData && quizData.questions.length > index) {
@@ -138,7 +144,6 @@ function displayQuestion(quizData, index) {
         const questionHTML = `<div class="question">${currentQuestion.question}</div>`;
         Question.innerHTML = questionHTML;
         const filteredOptions = quizData.questions[index].options;
-        // console.log(filteredOptions);
         const QuestionNumber = document.getElementById('question-num');
         QuizData().then((quizData) => {
             if (QuestionNumber && quizData.questions.length > 0) {
@@ -168,23 +173,6 @@ function displayQuestion(quizData, index) {
         }).catch(() => {
             console.error("Error fetching quiz data:");
         });
-        // Select function
-        function selectSingleOption(optionHTML) {
-            function handleOptionClick(event) {
-                const clickedOption = event.currentTarget;
-                options.forEach((option) => {
-                    if (option !== clickedOption) {
-                        option.classList.remove("select");
-                        option.removeEventListener("click", handleOptionClick);
-                    }
-                });
-                clickedOption.classList.add("select");
-                console.log(clickedOption);
-            }
-            options.forEach(option => {
-                option.addEventListener("click", handleOptionClick);
-            });
-        }
         const optionsContainer = document.querySelector('.options');
         let optionHTML = '';
         filteredOptions.forEach((option, index) => {
@@ -206,6 +194,22 @@ QuizData().then((quizData) => {
 }).catch(() => {
     console.error("Error fetching quiz data:");
 });
+// Select function
+function selectSingleOption(optionHTML) {
+    function handleOptionClick(event) {
+        const clickedOption = event.currentTarget;
+        options.forEach((option) => {
+            if (option !== clickedOption) {
+                option.classList.remove("select");
+                option.removeEventListener("click", handleOptionClick);
+            }
+        });
+        clickedOption.classList.add("select");
+    }
+    options.forEach(option => {
+        option.addEventListener("click", handleOptionClick);
+    });
+}
 submitButton === null || submitButton === void 0 ? void 0 : submitButton.addEventListener("click", () => {
     currentQuestionIndex++;
     QuizData().then((quizData) => {
@@ -216,12 +220,4 @@ submitButton === null || submitButton === void 0 ? void 0 : submitButton.addEven
 });
 function escapeHtml(html) {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-// dark mode settings here
-function toggle() {
-    document.documentElement.classList.toggle('dark-theme');
-    // Check if the 'dark-theme' class is currently applied
-    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
-    // Store the theme state in local storage
-    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
 }

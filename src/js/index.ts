@@ -1,5 +1,13 @@
-toggle()
-QuizData()
+// dark mode settings here
+function toggle() {
+    const theme = document.documentElement.classList.toggle('dark-theme');
+
+    // Check if the 'dark-theme' class is currently applied
+    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
+
+    // Store the theme state in local storage
+    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
+}
 
 interface QuestionType {
     quizzes: Array<{
@@ -101,7 +109,7 @@ async function QuizData() {
 // Getting and setting quiz icon
 const Icon = document.getElementById("lesson-icon") as HTMLImageElement;
 
-QuizData().then(quizData => {
+QuizData().then((quizData) => {
     if (Icon && quizData) {
         Icon.src = quizData.icon;
     } else {
@@ -110,12 +118,6 @@ QuizData().then(quizData => {
 }).catch(() => {
     console.error("Error fetching quiz data:");
 });
-
-// Function to get URL parameters
-function getUrlParameter(name: string): string | null {
-    const urlParameters = new URLSearchParams(window.location.search);
-    return urlParameters.get(name);
-}
 
 // Icon Background-color
 function getLessonIconColor(lesson: string) {
@@ -133,6 +135,12 @@ function getLessonIconColor(lesson: string) {
     }
 }
 
+// Function to get URL parameters
+function getUrlParameter(name: string): string | null {
+    const urlParameters = new URLSearchParams(window.location.search);
+    return urlParameters.get(name);
+}
+
 // Get selected lesson from URL parameter
 const selectedLesson = getUrlParameter("category");
 
@@ -146,7 +154,7 @@ if (Icon && selectedLesson) {
 // Getting and setting quiz title
 const Title = document.getElementById("lesson-title") as HTMLParagraphElement;
 
-QuizData().then((quizData: Quiz) => {
+QuizData().then((quizData) => {
     if (Title && quizData) {
         Title.innerHTML = quizData.title;
     } else {
@@ -158,10 +166,9 @@ QuizData().then((quizData: Quiz) => {
 
 // qtn, optn, qNum && pBar
 const Question = document.getElementById("question");
-const submitButton = document.querySelector(".submit");
 const optionsContainer = document.querySelector('.options');
-
 const options = document.querySelectorAll(".question-content");
+const submitButton = document.querySelector(".submit");
 
 let currentQuestionIndex = 0;
 
@@ -172,7 +179,6 @@ function displayQuestion(quizData: Quiz, index: number) {
         Question.innerHTML = questionHTML;
 
         const filteredOptions = quizData.questions[index].options;
-        // console.log(filteredOptions);
 
         const QuestionNumber = document.getElementById('question-num')
         QuizData().then((quizData) => {
@@ -203,24 +209,7 @@ function displayQuestion(quizData: Quiz, index: number) {
             console.error("Error fetching quiz data:");
         });
 
-        // Select function
-        function selectSingleOption(optionHTML: string) {
-            function handleOptionClick(event: Event) {
-                const clickedOption = event.currentTarget as HTMLElement;
-                options.forEach((option) => {
-                    if (option !== clickedOption) {
-                        option.classList.remove("select");
-                        option.removeEventListener("click", handleOptionClick);
-                    }
-                });
-                clickedOption.classList.add("select");
-                console.log(clickedOption);
-            }
-
-            options.forEach(option => {
-                option.addEventListener("click", handleOptionClick);
-            });
-        }
+        
 
         const optionsContainer = document.querySelector('.options');
         let optionHTML = '';
@@ -244,6 +233,24 @@ QuizData().then((quizData) => {
     console.error("Error fetching quiz data:");
 });
 
+// Select function
+function selectSingleOption(optionHTML: string) {
+    function handleOptionClick(event: Event) {
+        const clickedOption = event.currentTarget as HTMLElement;
+        options.forEach((option) => {
+            if (option !== clickedOption) {
+                option.classList.remove("select");
+                option.removeEventListener("click", handleOptionClick);
+            }
+        });
+        clickedOption.classList.add("select");
+    }
+
+    options.forEach(option => {
+        option.addEventListener("click", handleOptionClick);
+    });
+}
+
 submitButton?.addEventListener("click", () => {
     currentQuestionIndex++;
     QuizData().then((quizData) => {
@@ -253,20 +260,6 @@ submitButton?.addEventListener("click", () => {
     });
 });
 
-
-
-
 function escapeHtml(html: string): string {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
-
-// dark mode settings here
-function toggle() {
-    document.documentElement.classList.toggle('dark-theme');
-
-    // Check if the 'dark-theme' class is currently applied
-    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
-
-    // Store the theme state in local storage
-    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
 }
