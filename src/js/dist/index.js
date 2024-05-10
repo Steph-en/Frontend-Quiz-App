@@ -96,7 +96,7 @@ QuizData().then((quizData) => {
         Icon.src = quizData.icon;
     }
     else {
-        console.error("Element with ID 'lesson-icon' not found or no quiz data found.");
+        console.error("Element with ID 'lesson-icon' not found");
     }
 }).catch(() => {
     console.error("Error fetching quiz data:");
@@ -128,7 +128,7 @@ if (Icon && selectedLesson) {
     Icon.style.backgroundColor = getLessonIconColor(selectedLesson);
 }
 else {
-    console.error("Element with ID 'lesson-icon' not found or no lesson selected.");
+    console.error("Element with ID 'lesson-icon' not found.");
 }
 // Getting and setting quiz title
 const Title = document.getElementById("lesson-title");
@@ -137,7 +137,7 @@ QuizData().then((quizData) => {
         Title.innerHTML = quizData.title;
     }
     else {
-        console.error("Element with ID 'lesson-title' not found or no quiz data found.");
+        console.error("Element with ID 'lesson-title' not found");
     }
 }).catch(() => {
     console.error("Error fetching quiz data:");
@@ -167,7 +167,7 @@ function displayQuestion(quizData, index) {
                 QuestionNumber.innerHTML = questionNum;
             }
             else {
-                console.error("Element with ID 'question-num' not found or no quiz data found.");
+                console.error("Element with ID 'question-num' not found");
             }
             if (QuestionNumber && quizData.questions.length > 0) {
                 const totalQuestions = quizData.questions.length;
@@ -178,15 +178,14 @@ function displayQuestion(quizData, index) {
                 }
             }
             else {
-                console.error("Element with ID 'question-num' not found or no quiz data found.");
+                console.error("Element with ID 'question-num' not found");
             }
         }).catch(() => {
             console.error("Error fetching quiz data:");
         });
-        const optionsContainer = document.querySelector('.options');
         let optionHTML = '';
         filteredOptions.forEach((option, index) => {
-            optionHTML += `<div class="question-content select" tabindex="0">
+            optionHTML += `<div class="question-content " tabindex="0">
             <p class="letter-options">${String.fromCharCode(65 + index)}</p>
             <p class="question-options">${escapeHtml(option)}</p>
             </div>`;
@@ -196,16 +195,16 @@ function displayQuestion(quizData, index) {
         }
     }
     else {
-        console.error("Element with ID 'question' not found, no quiz data found, or no questions available.");
+        console.error("Element with ID 'question' not found");
     }
 }
 QuizData().then((quizData) => {
     displayQuestion(quizData, currentQuestionIndex);
 }).catch(() => {
-    console.error("Error fetching quiz data:");
+    console.error("Error fetching quiz data");
 });
 // Select function
-function selectSingleOption(optionHTML) {
+function selectSingleOption() {
     function handleOptionClick(event) {
         const clickedOption = event.currentTarget;
         options.forEach((option) => {
