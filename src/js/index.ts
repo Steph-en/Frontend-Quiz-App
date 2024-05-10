@@ -2,12 +2,23 @@
 function toggle() {
     const theme = document.documentElement.classList.toggle('dark-theme');
 
-    // Check if the 'dark-theme' class is currently applied
-    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
-
     // Store the theme state in local storage
-    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
+    localStorage.setItem("theme", theme ? 'dark' : 'light');
 }
+
+// Function to initialize the theme when the page loads
+function initializeTheme() {
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+    } else {
+        document.documentElement.classList.remove('dark-theme');
+    }
+}
+
+// Call the initializeTheme function when the page loads
+window.onload = initializeTheme;
 
 interface QuestionType {
     quizzes: Array<{
@@ -208,8 +219,6 @@ function displayQuestion(quizData: Quiz, index: number) {
         }).catch(() => {
             console.error("Error fetching quiz data:");
         });
-
-        
 
         const optionsContainer = document.querySelector('.options');
         let optionHTML = '';

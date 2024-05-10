@@ -11,11 +11,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 // dark mode settings here
 function toggle() {
     const theme = document.documentElement.classList.toggle('dark-theme');
-    // Check if the 'dark-theme' class is currently applied
-    const isDarkTheme = document.documentElement.classList.contains('dark-theme');
     // Store the theme state in local storage
-    localStorage.setItem("theme", isDarkTheme ? 'dark' : 'light');
+    localStorage.setItem("theme", theme ? 'dark' : 'light');
 }
+// Function to initialize the theme when the page loads
+function initializeTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+    }
+    else {
+        document.documentElement.classList.remove('dark-theme');
+    }
+}
+// Call the initializeTheme function when the page loads
+window.onload = initializeTheme;
 // Selected Category | Mouse
 document.querySelectorAll(".category-link").forEach((link) => {
     link.addEventListener("click", navigateCategory);
