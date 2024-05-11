@@ -221,7 +221,7 @@ function displayQuestion(quizData: Quiz, index: number) {
 
         let optionHTML = '';
         filteredOptions.forEach((option, index) => {
-            optionHTML += `<div class="question-content " tabindex="0">
+            optionHTML += `<div class="question-content" tabindex="0" onclick="highLightOption(this)">
             <p class="letter-options">${String.fromCharCode(65 + index)}</p>
             <p class="question-options">${escapeHtml(option)}</p>
             </div>`;
@@ -256,6 +256,21 @@ function selectSingleOption() {
     options.forEach(option => {
         option.addEventListener("click", handleOptionClick);
     });
+}
+
+function highLightOption(data: HTMLElement) {
+    let isSelected = false;
+
+    optionsContainer?.querySelectorAll('.question-content').forEach((element) => {
+        if (element.classList.contains('select')) {
+            isSelected = true;
+        }
+    });
+    if (isSelected) {
+        return
+    } else {
+        data.classList.add('select')
+    }
 }
 
 submitButton?.addEventListener("click", () => {
