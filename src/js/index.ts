@@ -202,7 +202,7 @@ function displayQuestion(quizData: Quiz, index: number) {
                 } else {
                     questionNum = `<div class="question-num">Question ${String.fromCharCode(49 + index)} of 10</div>`;
                 }
-                QuestionNumber.innerHTML = questionNum;
+                QuestionNumber.innerHTML = questionNum as string;
             } else {
                 console.error("Element with ID 'question-num' not found");
             }
@@ -235,12 +235,17 @@ function displayQuestion(quizData: Quiz, index: number) {
     } else {
         console.error("Element with ID 'question' not found");
     }
+    if (currentQuestionIndex > 9){
+        console.log("hello");
+        window.location.href = "score.html"
+    }
 }
 
 
 
 QuizData().then((quizData) => {
     displayQuestion(quizData, currentQuestionIndex);
+    
 }).catch(() => {
     console.error("Error fetching quiz data");
 });

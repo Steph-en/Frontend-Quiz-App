@@ -75,7 +75,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
 
-    h1 {
+    p {
         margin: 0;
         font-size: 64px;
         font-weight: 300;
@@ -87,9 +87,9 @@ body {
 
     .menu-discription {
         font-size: 20px;
+        background: none;
         font-style: italic;
         color: var(--font-color-secondary);
-        background: none;
     }
 }
 

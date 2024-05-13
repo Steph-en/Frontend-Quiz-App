@@ -75,7 +75,6 @@ body {
             padding: 6px;
             border-radius: 8px;
             display: flex;
-            background: config.$acc;
         }
 
         .categories-title {
@@ -218,9 +217,6 @@ body {
             }
         }
 
-        // &:focus {
-        //     border: 3px solid config.$purple;
-        // }
         border: 3px solid config.$purple;
     }
 

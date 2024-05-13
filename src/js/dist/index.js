@@ -198,6 +198,10 @@ function displayQuestion(quizData, index) {
     else {
         console.error("Element with ID 'question' not found");
     }
+    if (currentQuestionIndex > 9) {
+        console.log("hello");
+        window.location.href = "score.html";
+    }
 }
 QuizData().then((quizData) => {
     displayQuestion(quizData, currentQuestionIndex);

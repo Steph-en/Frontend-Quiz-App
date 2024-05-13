@@ -1,0 +1,286 @@
+@use "config";
+@use "buttons";
+
+:root {
+    --bg-primary: #F4F6FA;
+    --bg-secondary: #FFFFFF;
+    --font-color-primary: #313E51;
+    --font-color-secondary: #626C7F;
+    --choice-font-color: #626C7F;
+    --bg-html: #FFF1E9;
+    --bg-css: #E0FDEF;
+    --bg-js: #EBF0FF;
+    --bg-acc: #F6E7FF;
+    --sun-icon: url(/assets/images/icon-sun-dark.svg);
+    --moon-icon: url(/assets/images/icon-moon-dark.svg);
+    --bg-image-pc: url(/assets/images/pattern-background-desktop-light.svg);
+    --bg-image-tablet: url(/assets/images/pattern-background-tablet-light.svg);
+    --bg-image-mobile: url(/assets/images/pattern-background-mobile-light.svg);
+}
+
+.dark-theme {
+    --bg-primary: #313E51;
+    --bg-secondary: #3B4D66;
+    --font-color-primary: #FFFFFF;
+    --font-color-secondary: #ABC1E1;
+    --choise-font-color: #626C7F;
+    --sun-icon: url(/assets/images/icon-sun-light.svg);
+    --moon-icon: url(/assets/images/icon-moon-light.svg);
+    --bg-image-pc: url(/assets/images/pattern-background-desktop-dark.svg);
+    --bg-image-tablet: url(/assets/images/pattern-background-tablet-dark.svg);
+    --bg-image-mobile: url(/assets/images/pattern-background-mobile-dark.svg);
+}
+
+*,
+html {
+    font-family: config.$font-stack;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--bg-primary);
+    background-image: var(--bg-image-pc);
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.head {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .title {
+        gap: 24px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        .lesson-icon {
+            width: 56px;
+            height: 56px;
+            padding: 6px;
+            border-radius: 8px;
+            display: flex;
+            background: config.$acc;
+        }
+
+        .categories-title {
+            color: var(--font-color-primary);
+            font-size: 28px;
+        }
+    }
+}
+
+.container {
+    width: 80%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--font-color-primary);
+}
+
+.score-heading {
+    width: 100%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    p {
+        margin: 0;
+        font-size: 64px;
+        font-weight: 300;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.score-feild {
+    width: 100%;
+    height: 512px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    .score {
+        height: 388px;
+        padding: 48px;
+        display: flex;
+        border-radius: 24px;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        background-color: var(--bg-secondary);
+
+        .lesson{
+            gap: 10px;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .mark {
+            font-size: 12em;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            font-weight: 500;
+
+            .span {
+                font-weight: 400;
+                font-size: 20px;
+                color: var(--font-color-secondary);
+            }
+        }
+    }
+
+    .resetBtn {
+        cursor: pointer;
+        padding: 0 0 0 20px;
+        gap: 32px;
+        height: 96px;
+        width: inherit;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 24px;
+        text-decoration: none;
+        color: var(--font-color-primary);
+        background-color: config.$purple;
+
+        .reset {
+            font-size: 28px;
+            font-weight: 500px;
+            background: none;
+        }
+
+        &:hover {
+            background-color: config.$purple-hover;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-image: var(--bg-image-tablet);
+    }
+
+    .main {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .head {
+        width: 80%;
+    }
+
+    .container {
+        width: 80%;
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .score-heading {
+        width: 100%;
+        height: 15vh;
+    }
+
+    .lessons {
+        width: 100%;
+        height: 50vh;
+    }
+
+    .score-feild {
+        height: 100%;
+        border-radius: 12px;
+
+        .categories-titles {
+            font-size: 28px;
+        }
+
+        .icn {
+            width: 56px;
+            height: 56px;
+            border-radius: 6px;
+        }
+    }
+
+}
+
+@media (max-width: 600px) {
+    body {
+        width: 100%;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: var(--bg-image-mobile);
+    }
+
+    .main {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .head {
+        width: 90%;
+    }
+
+    .container {
+        width: 90%;
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .score-heading {
+        width: 100%;
+        height: 16vh;
+
+        p {
+            font-size: 40px;
+        }
+    }
+
+    .score-feild {
+        width: 100%;
+        height: 50vh;
+
+        .score{
+            width: 100%;
+            height: 300px;
+        }
+
+        .resetBtn{
+            height: 70px;
+            border-radius: 12px;
+        }
+    }
+}
