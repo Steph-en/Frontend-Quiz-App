@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="./src/styles/dist/score.css " />
+
+    <title>Quiz app</title>
+</head>
+
+<body>
+    <div id="main" class="main">
+        <!-- Toggle -->
+        <div class="head">
+            <div class="title">
+                <img id="lesson-icon" src="" class="lesson-icon" alt="lesson icon" />
+                <p id="lesson-title" class="categories-title"></p>
+            </div>
+            <div class="toggle">
+                <div class="sun-icon"></div>
+                <div class="toggle-btn">
+                    <input type="checkbox" id="toggle" />
+                    <label for="toggle" onclick="toggle()"></label>
+                </div>
+                <div class="moon-icon"></div>
+            </div>
+        </div>
+
+        <!-- Quiz question start -->
+        <div class="question-container">
+            <div class="container">
+                <div id="quiz-prompt" class="question-section">
+                    <div class="text">
+                        <p id="question-num" class="question-number">Question 6 of 10</p>
+                        <h3 id="question" class="question-body">Question</h3>
+                    </div>
+                    <div id="level-span" class="question-level-container">
+                        <div id="level" class="level-indicator"></div>
+                    </div>
+                </div>
+                <div class="options-container">
+                    <div class="options" id="optn">
+                        <div class="question-content" tabindex="0">
+                            <p id="letter" class="letter-options">A</p>
+                            <p class="question-options">HTML</p>
+                        </div>
+                        <div class="question-content" tabindex="0">
+                            <p class="letter-options">B</p>
+                            <p class="question-options">CSS</p>
+                        </div>
+                        <div class="question-content" tabindex="0">
+                            <p p class="letter-options">C</p>
+                            <p class="question-options">Javascript</p>
+                        </div>
+                        <div class="question-content" tabindex="0">
+                            <p class="letter-options">D</p>
+                            <p class="question-options">Accessibility</p>
+                        </div>
+                    </div>
+                    <div class="submit" tabindex="0">
+                        <p class="letter-options">Submit answer</p>
+                    </div>
+                    <p class="error-message">Please select an answer</p>
+                </div>
+            </div>
+        </div>
+        <!-- Quiz question end -->
+    </div>
+
+    <script src="./src/js/dist/index.js"></script>
+</body>
+
+</html>
