@@ -189,6 +189,8 @@ function displayQuestion(quizData: Quiz, index: number) {
         const questionHTML = `<div class="question">${currentQuestion.question}</div>`;
         Question.innerHTML = questionHTML;
 
+        // const questionAns = quizData.questions[index].answer
+        
         const filteredOptions = quizData.questions[index].options;
 
         const QuestionNumber = document.getElementById('question-num')
@@ -204,6 +206,7 @@ function displayQuestion(quizData: Quiz, index: number) {
             } else {
                 console.error("Element with ID 'question-num' not found");
             }
+
 
             if (QuestionNumber && quizData.questions.length > 0) {
                 const totalQuestions = quizData.questions.length;
@@ -233,6 +236,8 @@ function displayQuestion(quizData: Quiz, index: number) {
         console.error("Element with ID 'question' not found");
     }
 }
+
+
 
 QuizData().then((quizData) => {
     displayQuestion(quizData, currentQuestionIndex);

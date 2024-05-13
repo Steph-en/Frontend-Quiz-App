@@ -1,5 +1,4 @@
 # Ignored Files
-
 ## General
 node_modules
 *.log*
@@ -24,3 +23,6 @@ coverage/
 
 ## Histoire
 .histoire
+
+## .DS_Store files!
+.DS_Store

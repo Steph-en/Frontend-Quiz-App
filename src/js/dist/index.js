@@ -153,6 +153,7 @@ function displayQuestion(quizData, index) {
         const currentQuestion = quizData.questions[index];
         const questionHTML = `<div class="question">${currentQuestion.question}</div>`;
         Question.innerHTML = questionHTML;
+        // const questionAns = quizData.questions[index].answer
         const filteredOptions = quizData.questions[index].options;
         const QuestionNumber = document.getElementById('question-num');
         QuizData().then((quizData) => {
