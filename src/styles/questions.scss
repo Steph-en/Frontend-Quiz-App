@@ -149,24 +149,26 @@ body {
 
 .options-container {
     width: 100%;
-    height: 85%;
+    height: 70vh;
     display: flex;
+    align-items: center;
     flex-direction: column;
+    justify-content: center;
     justify-content: space-between;
 }
 
 .options {
     width: 100%;
+    height: 70%;
     display: flex;
-    height: 80%;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
 
     .question-content {
         cursor: pointer;
         padding: 0 20px 0 20px;
-        gap: 32px;
+        gap: 30px;
         height: 96px;
         width: inherit;
         display: flex;
@@ -301,23 +303,28 @@ body {
     }
 }
 
-.error-message {
-    width: 564px;
-    height: 40px;
-    gap: 8px;
-    font-size: 24px;
+.error-container {
+    width: 100%;
     display: flex;
     align-items: center;
-    flex-direction: row;
-    color: config.$error;
     justify-content: center;
-    display: none;
-}
+    font-size: 24px;display: none;
 
-.error-message::before {
-    content: url('/assets/images/icon-error.svg');
-    width: 40px;
-    height: 40px;
+    .error-message {
+        gap: 8px;
+        width: 80%;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        color: config.$error;
+        justify-content: center;
+    }
+
+    .error-message::before {
+        content: url('/assets/images/icon-error.svg');
+        width: 40px;
+        height: 40px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -415,7 +422,7 @@ body {
             height: 68px;
             border-radius: 14px;
 
-            .letter-options{
+            .letter-options {
                 font-size: 22px;
             }
         }
@@ -521,7 +528,7 @@ body {
             height: 60px;
             border-radius: 12px;
 
-            .letter-options{
+            .letter-options {
                 font-size: 20px;
             }
         }

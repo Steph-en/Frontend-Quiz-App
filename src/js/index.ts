@@ -190,7 +190,7 @@ function displayQuestion(quizData: Quiz, index: number) {
         Question.innerHTML = questionHTML;
 
         // const questionAns = quizData.questions[index].answer
-        
+
         const filteredOptions = quizData.questions[index].options;
 
         const QuestionNumber = document.getElementById('question-num')
@@ -235,7 +235,7 @@ function displayQuestion(quizData: Quiz, index: number) {
     } else {
         console.error("Element with ID 'question' not found");
     }
-    if (currentQuestionIndex > 9){
+    if (currentQuestionIndex > 9) {
         console.log("hello");
         window.location.href = "score.html"
     }
@@ -245,7 +245,7 @@ function displayQuestion(quizData: Quiz, index: number) {
 
 QuizData().then((quizData) => {
     displayQuestion(quizData, currentQuestionIndex);
-    
+
 }).catch(() => {
     console.error("Error fetching quiz data");
 });
@@ -283,13 +283,31 @@ function highLightOption(data: HTMLElement) {
     }
 }
 
+function isOptionSelected() {
+    // Check if there is any option with the 'select' class
+    const selectedOption = optionsContainer?.querySelector('.question-content.select');
+    return selectedOption !== null;
+}
+
 submitButton?.addEventListener("click", () => {
-    currentQuestionIndex++;
-    QuizData().then((quizData) => {
-        displayQuestion(quizData, currentQuestionIndex);
-    }).catch(() => {
-        console.error("Error fetching quiz data:");
-    });
+    if (isOptionSelected()) {
+        // If an option is selected, proceed to the next question
+        currentQuestionIndex++;
+        QuizData().then((quizData) => {
+            displayQuestion(quizData, currentQuestionIndex);
+            options.forEach(option => option.classList.remove("select"));
+        }).catch(() => {
+            console.error("Error fetching quiz data");
+        });
+    } else {
+        // Alert the user to select an option if none is selected
+        const ErrorElement = document.querySelector(".error-container") as HTMLElement | null;
+        if (ErrorElement !== null) {
+            ErrorElement.style.display = "block";
+        } else {
+            return ErrorElement.style.display = "none";
+        }
+    }
 });
 
 function escapeHtml(html: string): string {

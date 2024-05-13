@@ -238,13 +238,31 @@ function highLightOption(data) {
         data.classList.add('select');
     }
 }
+function isOptionSelected() {
+    // Check if there is any option with the 'select' class
+    const selectedOption = optionsContainer === null || optionsContainer === void 0 ? void 0 : optionsContainer.querySelector('.question-content.select');
+    return selectedOption !== null;
+}
 submitButton === null || submitButton === void 0 ? void 0 : submitButton.addEventListener("click", () => {
-    currentQuestionIndex++;
-    QuizData().then((quizData) => {
-        displayQuestion(quizData, currentQuestionIndex);
-    }).catch(() => {
-        console.error("Error fetching quiz data:");
-    });
+    if (isOptionSelected()) {
+        // If an option is selected, proceed to the next question
+        currentQuestionIndex++;
+        QuizData().then((quizData) => {
+            displayQuestion(quizData, currentQuestionIndex);
+            options.forEach(option => option.classList.remove("select"));
+        }).catch(() => {
+            console.error("Error fetching quiz data");
+        });
+    }
+    else {
+        // Alert the user to select an option if none is selected
+        const ErrorElement = document.querySelector(".error-container");
+        if (ErrorElement !== null) {
+            ErrorElement.style.display = "block";
+        }
+        else {
+        }
+    }
 });
 function escapeHtml(html) {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
