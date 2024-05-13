@@ -244,23 +244,28 @@ function isOptionSelected() {
     return selectedOption !== null;
 }
 submitButton === null || submitButton === void 0 ? void 0 : submitButton.addEventListener("click", () => {
+    // Use 'isOptionSelected()' to check if any option has been selected.
     if (isOptionSelected()) {
-        // If an option is selected, proceed to the next question
+        // If an option is selected, hide the error message (if it was shown), proceed to the next question.
         currentQuestionIndex++;
         QuizData().then((quizData) => {
             displayQuestion(quizData, currentQuestionIndex);
+            // Ensure no option is marked as selected when moving to the next question.
             options.forEach(option => option.classList.remove("select"));
+            // Optionally, hide the error message here if it was previously shown.
+            const ErrorElement = document.querySelector(".error-container");
+            if (ErrorElement !== null) {
+                ErrorElement.style.display = "none"; // Hide error message once an option is selected and moving on.
+            }
         }).catch(() => {
             console.error("Error fetching quiz data");
         });
     }
     else {
-        // Alert the user to select an option if none is selected
+        // If no option is selected, display the error message prompting the user to select an option.
         const ErrorElement = document.querySelector(".error-container");
         if (ErrorElement !== null) {
-            ErrorElement.style.display = "block";
-        }
-        else {
+            ErrorElement.style.display = "block"; // Show the error message.
         }
     }
 });

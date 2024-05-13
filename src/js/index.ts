@@ -289,26 +289,63 @@ function isOptionSelected() {
     return selectedOption !== null;
 }
 
+// Assuming `questions` is accessible and has the current question and its options,
+// and `currentQuestionIndex` points to the current question being answered.
+
+function markOptionAsCorrect() {
+    const currentQuestion = questions[currentQuestionIndex];
+    const selectedOptionElement = optionsContainer?.querySelector('.question-content.select');
+  
+    if (selectedOptionElement) {
+      const selectedOptionText = selectedOptionElement.querySelector('.question-options')?.textContent || "";
+      const correctAnswer = currentQuestion.answer;
+  
+      // Find the option element that contains the correct answer text
+      const correctOptionElement = Array.from((optionsContainer as HTMLElement).querySelectorAll('.question-content'))
+        .find(element => element.textContent?.trim() === correctAnswer);
+  
+      // If the selected option's text matches the correct answer's text
+      if (selectedOptionText === correctAnswer) {
+        selectedOptionElement.classList.add("correct");
+      } else {
+        // Option selected is incorrect
+        selectedOptionElement.classList.add("incorrect"); // You may want to add this class for styles indicating incorrect choice
+      }
+  
+      if (correctOptionElement && !correctOptionElement.classList.contains("correct")) {
+        // Additionally mark the correct option if the user's choice was incorrect.
+        correctOptionElement.classList.add("correct");
+      }
+    }
+  }
+
 submitButton?.addEventListener("click", () => {
+    // Use 'isOptionSelected()' to check if any option has been selected.
     if (isOptionSelected()) {
-        // If an option is selected, proceed to the next question
+        markOptionAsCorrect();
+        // If an option is selected, hide the error message (if it was shown), proceed to the next question.
         currentQuestionIndex++;
         QuizData().then((quizData) => {
             displayQuestion(quizData, currentQuestionIndex);
+            // Ensure no option is marked as selected when moving to the next question.
             options.forEach(option => option.classList.remove("select"));
+            // Optionally, hide the error message here if it was previously shown.
+            const ErrorElement = document.querySelector(".error-container") as HTMLElement | null;
+            if (ErrorElement !== null) {
+                ErrorElement.style.display = "none"; // Hide error message once an option is selected and moving on.
+            }
         }).catch(() => {
             console.error("Error fetching quiz data");
         });
     } else {
-        // Alert the user to select an option if none is selected
+        // If no option is selected, display the error message prompting the user to select an option.
         const ErrorElement = document.querySelector(".error-container") as HTMLElement | null;
         if (ErrorElement !== null) {
-            ErrorElement.style.display = "block";
-        } else {
-            return ErrorElement.style.display = "none";
+            ErrorElement.style.display = "block"; // Show the error message.
         }
     }
 });
+
 
 function escapeHtml(html: string): string {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
