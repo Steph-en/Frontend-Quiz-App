@@ -156,8 +156,6 @@ function displayQuestion(quizData, index) {
         Question.innerHTML = questionHTML;
         const questionAns = quizData.questions[index].answer;
         const filteredOptions = quizData.questions[index].options;
-        // console.log(filteredOptions);
-        // console.log(questionAns);
         const QuestionNumber = document.getElementById('question-num');
         QuizData().then((quizData) => {
             if (QuestionNumber && quizData.questions.length > 0) {

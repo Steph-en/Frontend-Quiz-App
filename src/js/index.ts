@@ -192,9 +192,7 @@ function displayQuestion(quizData: Quiz, index: number) {
 
         const questionAns = quizData.questions[index].answer
         const filteredOptions = quizData.questions[index].options;
-        // console.log(filteredOptions);
-        // console.log(questionAns);
-
+        
         const QuestionNumber = document.getElementById('question-num')
         QuizData().then((quizData) => {
             if (QuestionNumber && quizData.questions.length > 0) {
