@@ -193,6 +193,7 @@ body {
             font-size: 26px;
             font-weight: 500px;
             background: none;
+            width: fit-content;
         }
 
         &:hover {
@@ -206,7 +207,6 @@ body {
 
 
     .select {
-
         .letter-options {
             background-color: config.$purple;
             color: config.$pure-white;
@@ -257,8 +257,8 @@ body {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 320px;
-            width: 364px;
+            gap: 80px;
+            width: auto;
         }
 
         .question-options::after {
@@ -308,7 +308,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 24px;display: none;
+    font-size: 24px;
+    display: none;
 
     .error-message {
         gap: 8px;
