@@ -195,8 +195,6 @@ function displayQuestion(quizData: Quiz, index: number) {
         // console.log(filteredOptions);
         // console.log(questionAns);
 
-
-
         const QuestionNumber = document.getElementById('question-num')
         QuizData().then((quizData) => {
             if (QuestionNumber && quizData.questions.length > 0) {
@@ -367,15 +365,14 @@ function hideErrorMessage() {
 }
 
 // Function to update the score based on the selected option
-// Function to update the score based on the selected option
 function updateScore() {
     const selectedOptionElement = optionsContainer?.querySelector('.question-content.select');
     const currentQuestion = filteredCategoryQuestions.questions[currentQuestionIndex];
     const correctAnswer = currentQuestion.answer;
-
+    
     if (selectedOptionElement) {
         const selectedOptionText = selectedOptionElement.querySelector('.question-options')?.textContent || "";
-
+        
         // If the selected option is correct, increment the score
         if (selectedOptionText === correctAnswer) {
             score++;
@@ -389,7 +386,6 @@ function updateScore() {
     }
 }
 
-console.log(score);
 
 // Function to reset the score
 function resetScore() {

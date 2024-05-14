@@ -316,7 +316,6 @@ function hideErrorMessage() {
     }
 }
 // Function to update the score based on the selected option
-// Function to update the score based on the selected option
 function updateScore() {
     var _a;
     const selectedOptionElement = optionsContainer === null || optionsContainer === void 0 ? void 0 : optionsContainer.querySelector('.question-content.select');
@@ -335,7 +334,6 @@ function updateScore() {
         scoreElement.innerHTML = score.toString();
     }
 }
-console.log(score);
 // Function to reset the score
 function resetScore() {
     score = 0;
