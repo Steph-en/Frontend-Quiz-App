@@ -243,9 +243,36 @@ function isOptionSelected() {
     const selectedOption = optionsContainer === null || optionsContainer === void 0 ? void 0 : optionsContainer.querySelector('.question-content.select');
     return selectedOption !== null;
 }
+function markOptionAsCorrect(quizData) {
+    var _a;
+    const currentQuestion = quizData.questions[currentQuestionIndex];
+    const selectedOptionElement = optionsContainer === null || optionsContainer === void 0 ? void 0 : optionsContainer.querySelector('.question-content.select');
+    if (selectedOptionElement) {
+        const selectedOptionText = ((_a = selectedOptionElement.querySelector('.question-options')) === null || _a === void 0 ? void 0 : _a.textContent) || "";
+        const correctAnswer = currentQuestion.answer;
+        // Find the option element that contains the correct answer text
+        const correctOptionElement = Array.from(optionsContainer.querySelectorAll('.question-content'))
+            .find(element => { var _a; return ((_a = element.textContent) === null || _a === void 0 ? void 0 : _a.trim()) === correctAnswer; });
+        // If the selected option's text matches the correct answer's text
+        if (selectedOptionText === correctAnswer) {
+            selectedOptionElement.classList.add("correct");
+        }
+        else {
+            // Option selected is incorrect
+            selectedOptionElement.classList.add("incorrect"); // You may want to add this class for styles indicating incorrect choice
+        }
+        if (correctOptionElement && !correctOptionElement.classList.contains("correct")) {
+            // Additionally mark the correct option if the user's choice was incorrect.
+            correctOptionElement.classList.add("correct");
+        }
+    }
+}
+// Submit button event listener
 submitButton === null || submitButton === void 0 ? void 0 : submitButton.addEventListener("click", () => {
     // Use 'isOptionSelected()' to check if any option has been selected.
     if (isOptionSelected()) {
+        // Pass quizData as parameter
+        markOptionAsCorrect(filteredCategoryQuestions);
         // If an option is selected, hide the error message (if it was shown), proceed to the next question.
         currentQuestionIndex++;
         QuizData().then((quizData) => {

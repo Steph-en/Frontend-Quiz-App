@@ -241,8 +241,6 @@ function displayQuestion(quizData: Quiz, index: number) {
     }
 }
 
-
-
 QuizData().then((quizData) => {
     displayQuestion(quizData, currentQuestionIndex);
 
@@ -289,11 +287,8 @@ function isOptionSelected() {
     return selectedOption !== null;
 }
 
-// Assuming `questions` is accessible and has the current question and its options,
-// and `currentQuestionIndex` points to the current question being answered.
-
-function markOptionAsCorrect() {
-    const currentQuestion = questions[currentQuestionIndex];
+function markOptionAsCorrect(quizData: Quiz) {
+    const currentQuestion = quizData.questions[currentQuestionIndex];
     const selectedOptionElement = optionsContainer?.querySelector('.question-content.select');
   
     if (selectedOptionElement) {
@@ -317,12 +312,14 @@ function markOptionAsCorrect() {
         correctOptionElement.classList.add("correct");
       }
     }
-  }
+}
 
+// Submit button event listener
 submitButton?.addEventListener("click", () => {
     // Use 'isOptionSelected()' to check if any option has been selected.
     if (isOptionSelected()) {
-        markOptionAsCorrect();
+        // Pass quizData as parameter
+        markOptionAsCorrect(filteredCategoryQuestions);
         // If an option is selected, hide the error message (if it was shown), proceed to the next question.
         currentQuestionIndex++;
         QuizData().then((quizData) => {
@@ -345,7 +342,6 @@ submitButton?.addEventListener("click", () => {
         }
     }
 });
-
 
 function escapeHtml(html: string): string {
     return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
