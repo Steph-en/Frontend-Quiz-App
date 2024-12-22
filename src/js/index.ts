@@ -334,20 +334,14 @@ nextQuestion?.addEventListener("click", () => {
     });
 })
 
-function toggleSubmitButtonVisibility1() {
+function toggleSubmitButtonVisibility() {
     if (submitButton && nextQuestion) {
         submitButton.style.display = "none";
         (nextQuestion as HTMLElement).style.display = "block";
-    } else {
-        console.error("Submit button not found.");
-    }
-}
-
-function toggleSubmitButtonVisibility() {
-    if (submitButton && nextQuestion) {
+    } else if (submitButton && nextQuestion) {
         submitButton.style.display = "block";
         nextQuestion.style.display = "none";
-    } else {
+    } else {    
         console.error("Submit button or Next Question button not found.");
     }
 }

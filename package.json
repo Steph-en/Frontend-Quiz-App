@@ -1,10 +1,10 @@
 {
   "name": "frontend-quiz-app",
   "version": "1.0.0",
-  "description": "![Design preview for the Frontend quiz app coding challenge](./preview.jpg)",
+  "description": "Design preview for the Frontend quiz app coding challenge(./preview.jpg)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "lite-server"
   },
   "author": "",
   "license": "ISC",
