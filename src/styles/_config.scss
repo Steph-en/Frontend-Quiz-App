@@ -1,3 +1,31 @@
+:root {
+    --bg-primary: #F4F6FA;
+    --bg-secondary: #FFFFFF;
+    --font-color-primary: #313E51;
+    --font-color-secondary: #626C7F;
+    --bg-html: #FFF1E9;
+    --bg-css: #E0FDEF;
+    --bg-js: #EBF0FF;
+    --bg-acc: #F6E7FF;
+    --sun-icon: url(/assets/images/icon-sun-dark.svg);
+    --moon-icon: url(/assets/images/icon-moon-dark.svg);
+    --bg-image-pc: url(/assets/images/pattern-background-desktop-light.svg);
+    --bg-image-tablet: url(/assets/images/pattern-background-tablet-light.svg);
+    --bg-image-mobile: url(/assets/images/pattern-background-mobile-light.svg);
+}
+
+.dark-theme {
+    --bg-primary: #313E51;
+    --bg-secondary: #3B4D66;
+    --font-color-primary: #FFFFFF;
+    --font-color-secondary: #ABC1E1;
+    --sun-icon: url(/assets/images/icon-sun-light.svg);
+    --moon-icon: url(/assets/images/icon-moon-light.svg);
+    --bg-image-pc: url(/assets/images/pattern-background-desktop-dark.svg);
+    --bg-image-tablet: url(/assets/images/pattern-background-tablet-dark.svg);
+    --bg-image-mobile: url(/assets/images/pattern-background-mobile-dark.svg);
+}
+
 // font family
 $font-stack: "Rubik", san-serif;
 
