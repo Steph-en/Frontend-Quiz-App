@@ -313,7 +313,7 @@ let score = 0;
 submitButton?.addEventListener("click", () => {
     if (isOptionSelected()) {
         markOptionAsCorrect(filteredCategoryQuestions);
-        toggleSubmitButtonVisibility1();
+        toggleSubmitButtonVisibility();
         updateScore();
     } else {
         const ErrorElement = document.querySelector(".error-container") as HTMLElement | null;
