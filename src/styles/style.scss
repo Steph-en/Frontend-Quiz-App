@@ -71,8 +71,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
+    
     .category-link {
         cursor: pointer;
         padding: 0 0 0 1.25em;
@@ -86,40 +85,44 @@ body {
         text-decoration: none;
         color: var(--font-color-primary);
         background-color: var(--bg-secondary);
-
+        
         .categories-titles {
             font-size: 1.75em;
             font-weight: 31.25em;
             background: none;
         }
-
+        
         .icn {
             width: 3.5em;
             height: 3.5em;
             padding: 0.625em;
-            display: flex;
             border-radius: 0.5em;
+            display: flex;
             align-items: center;
             justify-content: center;
         }
-
+        
         .icon1 {
             background: var(--bg-html);
         }
-
+        
         .icon2 {
             background: var(--bg-css);
         }
-
+        
         .icon3 {
             background: var(--bg-js);
         }
-
+        
         .icon4 {
             background: var(--bg-acc);
         }
     }
 
+    .category-link:nth-child(2n + 2){
+        margin: 0.125em 0;
+    }
+}
 
 @media screen and (max-width: 1024px) {
     body {
